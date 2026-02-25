@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Privacy Statement — Stellar Soirée</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            :root {
+                --navy: #080b1a;
+                --navy-mid: #0e1530;
+                --navy-light: #161e3f;
+                --gold: #e8c87a;
+                --silver: #c8d4e8;
+                --white: #ffffff;
+                --mid: #8a99bc;
+                --font-display: "Cormorant Garamond", Georgia, serif;
+                --font-body: "Outfit", system-ui, sans-serif;
+                --max-w: 720px;
+            }
+
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: var(--font-body);
+                background: var(--navy);
+                color: var(--silver);
+                line-height: 1.6;
+                min-height: 100vh;
+            }
+
+            /* Subtle background glow */
+            body::before {
+                content: "";
+                position: fixed;
+                inset: 0;
+                pointer-events: none;
+                background:
+                    radial-gradient(
+                        ellipse 60% 50% at 20% 30%,
+                        rgba(80, 40, 160, 0.2) 0%,
+                        transparent 65%
+                    ),
+                    radial-gradient(
+                        ellipse 50% 40% at 80% 70%,
+                        rgba(20, 60, 130, 0.2) 0%,
+                        transparent 65%
+                    );
+            }
+
+            .page-wrap {
+                position: relative;
+                z-index: 1;
+                max-width: var(--max-w);
+                margin: 0 auto;
+                padding: 4rem 2rem 5rem;
+            }
+
+            /* Back link */
+            .back-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                color: var(--mid);
+                text-decoration: none;
+                font-size: 0.85rem;
+                letter-spacing: 0.04em;
+                margin-bottom: 3rem;
+                transition: color 0.2s;
+            }
+            .back-link:hover {
+                color: var(--gold);
+            }
+            .back-link svg {
+                flex-shrink: 0;
+            }
+
+            /* Header */
+            .page-header {
+                text-align: center;
+                margin-bottom: 3.5rem;
+                padding-bottom: 2.5rem;
+                border-bottom: 1px solid rgba(232, 200, 122, 0.15);
+            }
+            .page-label {
+                font-size: 0.68rem;
+                font-weight: 500;
+                letter-spacing: 0.22em;
+                text-transform: uppercase;
+                color: var(--gold);
+                margin-bottom: 0.75rem;
+            }
+            .page-header h1 {
+                font-family: var(--font-display);
+                font-size: clamp(2.2rem, 5vw, 3.2rem);
+                font-weight: 600;
+                color: var(--white);
+                line-height: 1.1;
+                margin-bottom: 0.5rem;
+            }
+            .page-header .subtitle {
+                font-family: var(--font-display);
+                font-style: italic;
+                color: var(--mid);
+                font-size: 1.1rem;
+            }
+
+            /* Sections */
+            .privacy-section {
+                margin-bottom: 2.75rem;
+            }
+            .privacy-section h2 {
+                font-family: var(--font-display);
+                font-size: 1.4rem;
+                font-weight: 600;
+                color: var(--gold);
+                margin-bottom: 1rem;
+                display: flex;
+                align-items: center;
+                gap: 0.6rem;
+            }
+            .privacy-section h2::before {
+                content: "✦";
+                font-size: 0.55rem;
+                opacity: 0.8;
+            }
+            .privacy-section p {
+                font-size: 0.95rem;
+                color: var(--mid);
+                line-height: 1.8;
+                margin-bottom: 0.9rem;
+            }
+            .privacy-section p:last-child {
+                margin-bottom: 0;
+            }
+
+            .privacy-section ul {
+                list-style: none;
+                margin: 0.5rem 0 1rem 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .privacy-section ul li {
+                font-size: 0.95rem;
+                color: var(--mid);
+                padding-left: 1.4rem;
+                position: relative;
+                line-height: 1.7;
+            }
+            .privacy-section ul li::before {
+                content: "✦";
+                position: absolute;
+                left: 0;
+                color: var(--gold);
+                font-size: 0.45rem;
+                top: 0.55rem;
+            }
+
+            .sign-off {
+                text-align: center;
+                padding-top: 2.5rem;
+                border-top: 1px solid rgba(232, 200, 122, 0.15);
+                margin-top: 1rem;
+            }
+            .sign-off p {
+                font-family: var(--font-display);
+                font-style: italic;
+                font-size: 1.5rem;
+                color: var(--gold);
+            }
+
+            /* Footer */
+            .page-footer {
+                text-align: center;
+                margin-top: 4rem;
+                font-size: 0.78rem;
+                color: var(--mid);
+                opacity: 0.45;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page-wrap">
+            <a href="index.html" class="back-link">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path d="M19 12H5M12 5l-7 7 7 7" />
+                </svg>
+                Back to the event
+            </a>
+
+            <div class="page-header">
+                <p class="page-label">Salmon Bay K–8 Spring Fundraiser</p>
+                <h1>Privacy Statement</h1>
+                <p class="subtitle">The Friendly Version</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>The Official-Sounding Part</h2>
+                <p>
+                    We respect your privacy and are committed to protecting any
+                    personal information you choose to share with us. When you
+                    use this website, we may collect basic information such as
+                    your name, email address, phone number, bidding history, and
+                    payment details for the sole purpose of:
+                </p>
+                <ul>
+                    <li>Processing donations and auction purchases</li>
+                    <li>Communicating important event updates</li>
+                    <li>Delivering items, receipts, or thank-you messages</li>
+                    <li>Making this fundraiser run smoothly</li>
+                </ul>
+                <p>
+                    We do not sell, rent, trade, or otherwise distribute your
+                    personal information to third parties for marketing or other
+                    unrelated purposes. Your information is used only for this
+                    fundraiser and related community activities.
+                </p>
+                <p>
+                    We take reasonable steps to keep your information secure.
+                    However, as with any website run by sleep-deprived
+                    volunteers fueled by coffee and good intentions, absolute
+                    security cannot be guaranteed.
+                </p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>The Human Part</h2>
+                <p>
+                    We are a group of volunteer parents donating our time to
+                    fundraise and bring together our awesome community. We are
+                    committed to making this experience fun, fair, and positive
+                    for everyone.
+                </p>
+                <p>
+                    If something is wrong, confusing, imperfect, or not up to
+                    your standards, we sincerely apologize. Please know it is
+                    never due to negligence or any intention to disrupt,
+                    frustrate, or harm anyone. We are volunteers, and while we
+                    will absolutely make mistakes and won't always get
+                    everything right, we are all here for the same reason: we
+                    care deeply about our school, our community, and our kids.
+                </p>
+                <p>
+                    We genuinely want Salmon Bay to succeed and for every
+                    student to thrive.
+                </p>
+                <p>
+                    If you ever have a concern, question, or issue, please reach
+                    out to us directly. We promise to listen, treat you with
+                    respect, and do our very best to help and accommodate
+                    however we can.
+                </p>
+            </div>
+
+            <div class="privacy-section">
+                <h2>The Spirit of It All</h2>
+                <p>
+                    By participating in this fundraiser, you are helping build
+                    something special for our kids and community. We are
+                    grateful for your support, your patience, and your kindness.
+                </p>
+            </div>
+
+            <div class="sign-off">
+                <p>Go SBK8! 🚀</p>
+            </div>
+
+            <div class="page-footer">
+                <p>© 2025 Friends of Salmon Bay. All rights reserved.</p>
+            </div>
+        </div>
+    </body>
+</html>
