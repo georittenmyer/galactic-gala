@@ -1350,7 +1350,11 @@
 
                 <p>© 2025 Friends of Salmon Bay. All rights reserved.</p>
                 <ul class="footer-links">
-                    <li><a href="#" id="privacy-link">Privacy Statement</a></li>
+                    <li>
+                        <a href="javascript:void(0)" id="privacy-link"
+                            >Privacy Statement</a
+                        >
+                    </li>
                     <li>
                         <a
                             href="/cdn-cgi/l/email-protection#55342036213c3a3b15263439383a3b37342c7b3a2732"
@@ -1622,27 +1626,29 @@
             </style>
 
             <script>
-              const privacyLink  = document.getElementById('privacy-link');
-              const privacyModal = document.getElementById('privacy-modal');
-              const modalClose   = document.getElementById('modal-close');
+              document.addEventListener('DOMContentLoaded', () => {
+                const privacyLink  = document.getElementById('privacy-link');
+                const privacyModal = document.getElementById('privacy-modal');
+                const modalClose   = document.getElementById('modal-close');
 
-              privacyLink.addEventListener('click', e => {
-                e.preventDefault();
-                privacyModal.classList.add('open');
-                document.body.style.overflow = 'hidden';
-              });
+                privacyLink.addEventListener('click', e => {
+                  e.preventDefault();
+                  privacyModal.classList.add('open');
+                  document.body.style.overflow = 'hidden';
+                });
 
-              function closeModal() {
-                privacyModal.classList.remove('open');
-                document.body.style.overflow = '';
-              }
+                function closeModal() {
+                  privacyModal.classList.remove('open');
+                  document.body.style.overflow = '';
+                }
 
-              modalClose.addEventListener('click', closeModal);
-              privacyModal.addEventListener('click', e => {
-                if (e.target === privacyModal) closeModal();
-              });
-              document.addEventListener('keydown', e => {
-                if (e.key === 'Escape') closeModal();
+                modalClose.addEventListener('click', closeModal);
+                privacyModal.addEventListener('click', e => {
+                  if (e.target === privacyModal) closeModal();
+                });
+                document.addEventListener('keydown', e => {
+                  if (e.key === 'Escape') closeModal();
+                });
               });
         </script>
 
