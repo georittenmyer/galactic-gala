@@ -338,46 +338,72 @@
     ============================================= */
     .details-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      gap: 1.25rem;
-      margin-top: 3rem;
+      gap: 1rem;
     }
-    @media (max-width: 900px) {
-      .details-grid[style*="repeat(8"] {
-        grid-template-columns: repeat(4, 1fr) !important;
-      }
+    .details-featured {
+      grid-template-columns: repeat(4, 1fr);
     }
-    @media (max-width: 560px) {
-      .details-grid[style*="repeat(8"] {
-        grid-template-columns: repeat(2, 1fr) !important;
-      }
+    .details-supporting {
+      grid-template-columns: repeat(4, 1fr);
     }
     .detail-card {
       background: var(--navy-light);
       border: 1px solid rgba(232,200,122,0.12);
       border-radius: 10px;
-      padding: 1.75rem 1.5rem;
       text-align: center;
-      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-      display: block;
       color: inherit;
       text-decoration: none;
     }
-    .detail-card:hover {
+    .detail-card--featured {
+      padding: 2rem 1.25rem;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .detail-card--featured:hover {
       border-color: rgba(232,200,122,0.45);
       box-shadow: 0 0 24px rgba(232,200,122,0.12);
       transform: translateY(-3px);
       cursor: pointer;
     }
-    .detail-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
-    .detail-card h3 {
+    .detail-card--supporting {
+      padding: 1.25rem 1rem;
+      border-color: rgba(232,200,122,0.07);
+      background: rgba(22,30,63,0.5);
+    }
+    .detail-icon { margin-bottom: 0.75rem; }
+    .detail-card--featured h3 {
       font-family: var(--font-display);
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 600;
       color: var(--gold);
       margin-bottom: 0.4rem;
     }
-    .detail-card p { font-size: 0.88rem; color: var(--mid); line-height: 1.55; }
+    .detail-card--featured p {
+      font-size: 0.88rem;
+      color: var(--mid);
+      line-height: 1.55;
+    }
+    .detail-card--supporting h3 {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--silver);
+      margin-bottom: 0.3rem;
+      opacity: 0.8;
+    }
+    .detail-card--supporting p {
+      font-size: 0.78rem;
+      color: var(--mid);
+      line-height: 1.5;
+      opacity: 0.7;
+    }
+    @media (max-width: 700px) {
+      .details-featured { grid-template-columns: repeat(2, 1fr); }
+      .details-supporting { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 400px) {
+      .details-featured { grid-template-columns: 1fr 1fr; }
+      .details-supporting { grid-template-columns: 1fr 1fr; }
+    }
 
     /* =============================================
        WAYS TO HELP
@@ -704,48 +730,52 @@
       Join us for a grown-up night out and dive into an unforgettable evening at our Community Celebration. Enjoy a night of raffles, live music, and great company with tasty food and drinks from <strong style="color:var(--silver)">Old Stove Brewing</strong> — plus heartfelt words from the teachers and staff who make Salmon Bay so special. Don't miss out on the fun! 🐟🎶
     </p>
 
-    <div class="details-grid" style="grid-template-columns: repeat(8, 1fr); gap: 0.75rem; margin-top: 2rem;">
-      <!-- ===== UPDATE: replace each href="#" with your link ===== -->
-      <a href="https://givebutter.com/SBk8-spring2026" class="detail-card" style="padding: 1.25rem 0.75rem;" target="_blank" rel="noopener">
-        <div class="detail-icon" style="font-size:1.4rem;">📅</div>
-        <h3 style="font-size:0.9rem;">Date &amp; Time</h3>
-        <p style="font-size:0.78rem;">Friday, May 9th<br>7:00 – 10:00 PM</p>
+    <!-- ===== Row 1: 4 featured cards (linked) ===== -->
+    <div class="details-grid details-featured" style="margin-top: 2.5rem;">
+      <a href="https://givebutter.com/SBk8-spring2026" class="detail-card detail-card--featured" target="_blank" rel="noopener">
+        <div class="detail-icon" style="font-size:2rem;">📅</div>
+        <h3>Date &amp; Time</h3>
+        <p>Friday, May 9th<br>7:00 – 10:00 PM</p>
       </a>
-      <a href="https://maps.app.goo.gl/8cqLkbrXV9nPE1DMA" class="detail-card" style="padding: 1.25rem 0.75rem;" target="_blank" rel="noopener">
-        <div class="detail-icon" style="font-size:1.4rem;">📍</div>
-        <h3 style="font-size:0.9rem;">Venue</h3>
-        <p style="font-size:0.78rem;">Old Stove Gardens<br>Seattle, WA</p>
+      <a href="https://maps.app.goo.gl/8cqLkbrXV9nPE1DMA" class="detail-card detail-card--featured" target="_blank" rel="noopener">
+        <div class="detail-icon" style="font-size:2rem;">📍</div>
+        <h3>Venue</h3>
+        <p>Old Stove Gardens<br>Seattle, WA</p>
       </a>
-      <a href="https://givebutter.com/SBk8-spring2026" class="detail-card" style="padding: 1.25rem 0.75rem;" target="_blank" rel="noopener">
-        <div class="detail-icon" style="font-size:1.4rem;">🎟️</div>
-        <h3 style="font-size:0.9rem;">Tickets</h3>
-        <p style="font-size:0.78rem;">Adults only — get yours before they sell out!</p>
+      <a href="https://givebutter.com/SBk8-spring2026" class="detail-card detail-card--featured" target="_blank" rel="noopener">
+        <div class="detail-icon" style="font-size:2rem;">🎟️</div>
+        <h3>Tickets</h3>
+        <p>Adults only — get yours before they sell out!</p>
       </a>
-      <a href="https://maps.app.goo.gl/8cqLkbrXV9nPE1DMA" class="detail-card" style="padding: 1.25rem 0.75rem;" target="_blank" rel="noopener">
-        <div class="detail-icon" style="font-size:1.4rem;">🍺</div>
-        <h3 style="font-size:0.9rem;">Food &amp; Drinks</h3>
-        <p style="font-size:0.78rem;">Provided by Old Stove Brewing</p>
+      <a href="https://givebutter.com/c/SBk8-spring2026/auction" class="detail-card detail-card--featured" target="_blank" rel="noopener">
+        <div class="detail-icon" style="font-size:2rem;">💻</div>
+        <h3>Hybrid Auction</h3>
+        <p>A special night of one-of-a-kind items you won't find anywhere else</p>
       </a>
-      <a href="https://givebutter.com/SBk8-spring2026" class="detail-card" style="padding: 1.25rem 0.75rem;" target="_blank" rel="noopener">
-        <div class="detail-icon" style="font-size:1.4rem;">🎵</div>
-        <h3 style="font-size:0.9rem;">Live Music</h3>
-        <p style="font-size:0.78rem;">Local musicians performing under the stars</p>
-      </a>
-      <a href="https://givebutter.com/SBk8-spring2026" class="detail-card" style="padding: 1.25rem 0.75rem;" target="_blank" rel="noopener">
-        <div class="detail-icon" style="font-size:1.4rem;">🎰</div>
-        <h3 style="font-size:0.9rem;">Raffles</h3>
-        <p style="font-size:0.78rem;">Win incredible prizes throughout the evening</p>
-      </a>
-      <a href="https://givebutter.com/c/SBk8-spring2026/auction" class="detail-card" style="padding: 1.25rem 0.75rem;" target="_blank" rel="noopener">
-        <div class="detail-icon" style="font-size:1.4rem;">💻</div>
-        <h3 style="font-size:0.9rem;">Online Auction</h3>
-        <p style="font-size:0.78rem;">Bid on donated experiences &amp; items</p>
-      </a>
-      <a href="https://givebutter.com/SBk8-spring2026" class="detail-card" style="padding: 1.25rem 0.75rem;" target="_blank" rel="noopener">
-        <div class="detail-icon" style="font-size:1.4rem;">🎤</div>
-        <h3 style="font-size:0.9rem;">Voices from Our School</h3>
-        <p style="font-size:0.78rem;">Hear from the teachers &amp; staff who make Salmon Bay special</p>
-      </a>
+    </div>
+
+    <!-- ===== Row 2: 4 supporting cards (no link) ===== -->
+    <div class="details-grid details-supporting" style="margin-top: 1rem;">
+      <div class="detail-card detail-card--supporting">
+        <div class="detail-icon" style="font-size:1.3rem;">🍺</div>
+        <h3>Food &amp; Drinks</h3>
+        <p>Food and drink options available for purchase from Old Stove Brewing</p>
+      </div>
+      <div class="detail-card detail-card--supporting">
+        <div class="detail-icon" style="font-size:1.3rem;">🎵</div>
+        <h3>Live Music</h3>
+        <p>Local musicians performing under the stars</p>
+      </div>
+      <div class="detail-card detail-card--supporting">
+        <div class="detail-icon" style="font-size:1.3rem;">🎰</div>
+        <h3>Raffles</h3>
+        <p>Win incredible prizes throughout the evening</p>
+      </div>
+      <div class="detail-card detail-card--supporting">
+        <div class="detail-icon" style="font-size:1.3rem;">🎤</div>
+        <h3>Voices from Our School</h3>
+        <p>Hear from the teachers &amp; staff who make Salmon Bay special</p>
+      </div>
     </div>
   </div>
 </section>
