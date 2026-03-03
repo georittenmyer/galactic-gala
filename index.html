@@ -1007,7 +1007,7 @@
     if (!track) return;
     let names = [];
     try {
-      const res = await fetch('donors.txt');
+      const res = await fetch('data/donors.txt');
       if (res.ok) {
         const text = await res.text();
         names = text.split('\n').map(n => n.trim()).filter(Boolean);
