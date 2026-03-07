@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Auction — The Galactic Gala</title>
+        <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+        <link rel="stylesheet" href="https://use.typekit.net/zpl5vsa.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <canvas id="starfield"></canvas>
+
+        <header class="site-header">
+            <nav class="nav container">
+                <a href="index.html" class="nav-logo">
+                    <span class="nav-logo-text">Salmon Bay K–8 ✦</span>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html#event">Event</a></li>
+                    <li><a href="index.html#ways-to-help">Ways to Help</a></li>
+                    <li><a href="index.html#donate">Donate</a></li>
+                    <li>
+                        <a href="auction.html" style="color: var(--gold)"
+                            >Auction</a
+                        >
+                    </li>
+                </ul>
+
+                <a
+                    href="https://givebutter.com/c/FOSBParties/auction"
+                    class="btn btn-primary nav-cta"
+                    target="_blank"
+                    rel="noopener"
+                    >Bid Now ✦</a
+                >
+
+                <button class="hamburger" id="hamburger" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
+
+            <div class="mobile-menu" id="mobile-menu">
+                <ul>
+                    <li><a href="index.html#event">Event</a></li>
+                    <li><a href="index.html#ways-to-help">Ways to Help</a></li>
+                    <li><a href="index.html#donate">Donate</a></li>
+                    <li><a href="auction.html">Auction</a></li>
+                </ul>
+                <a
+                    href="https://givebutter.com/c/FOSBParties/auction"
+                    class="btn btn-primary"
+                    target="_blank"
+                    rel="noopener"
+                    >Bid Now ✦</a
+                >
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero -->
+            <section class="auction-hero">
+                <div class="shooting-star"></div>
+                <div class="shooting-star"></div>
+                <div class="shooting-star"></div>
+
+                <div class="container auction-hero-inner">
+                    <p class="hero-eyebrow">✦ &nbsp; Galactic Gala &nbsp; ✦</p>
+                    <h1
+                        style="
+                            font-family: var(--font-display);
+                            font-size: clamp(2.5rem, 6vw, 4.5rem);
+                            font-weight: 600;
+                            color: var(--white);
+                            line-height: 1.1;
+                            max-width: 700px;
+                        "
+                    >
+                        The Auction
+                    </h1>
+                    <p class="hero-subtitle">
+                        One-of-a-kind experiences, getaways, and goods — all
+                        benefiting Salmon Bay K–8. Bidding closes
+                        <strong style="color: var(--gold)"
+                            >June 12th at 11:45 PM</strong
+                        >.
+                    </p>
+                    <div
+                        style="
+                            display: flex;
+                            gap: 1rem;
+                            flex-wrap: wrap;
+                            justify-content: center;
+                            margin-top: 0.5rem;
+                        "
+                    >
+                        <a
+                            href="https://givebutter.com/c/FOSBParties/auction"
+                            class="btn btn-primary"
+                            target="_blank"
+                            rel="noopener"
+                            >Browse &amp; Bid on Givebutter ✦</a
+                        >
+                        <a href="index.html" class="btn btn-ghost"
+                            >← Back to Event</a
+                        >
+                    </div>
+                </div>
+            </section>
+
+            <!-- Auction items -->
+            <section class="section section--alt">
+                <div class="container">
+                    <div
+                        style="
+                            display: flex;
+                            align-items: baseline;
+                            justify-content: space-between;
+                            flex-wrap: wrap;
+                            gap: 1rem;
+                            margin-bottom: 0.25rem;
+                        "
+                    >
+                        <div>
+                            <p class="section-label">✦ Available Items</p>
+                            <h2 class="section-title">Browse the Auction</h2>
+                        </div>
+                        <span
+                            id="auction-count"
+                            style="
+                                font-size: 0.82rem;
+                                color: var(--mid);
+                                opacity: 0.7;
+                            "
+                        ></span>
+                    </div>
+                    <div class="divider"></div>
+                    <p class="lead">
+                        Click any item to place your bid on Givebutter. All
+                        proceeds go directly to Salmon Bay K–8.
+                    </p>
+
+                    <!-- Category filters — populated by auction.js -->
+                    <div class="auction-filters" id="auction-filters"></div>
+
+                    <!-- Cards — populated by auction.js -->
+                    <div class="auction-grid" id="auction-grid">
+                        <!-- Loading state -->
+                        <div class="auction-empty">
+                            <p>Loading auction items…</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA bar -->
+            <section class="auction-cta-bar">
+                <div class="container">
+                    <p class="section-label" style="margin-bottom: 0.5rem">
+                        ✦ Don't Miss Out
+                    </p>
+                    <h2 class="section-title" style="margin-bottom: 1rem">
+                        Ready to Bid?
+                    </h2>
+                    <p>
+                        All auction items are managed on Givebutter. Create a
+                        free account to track your bids and get outbid
+                        notifications.
+                    </p>
+                    <a
+                        href="https://givebutter.com/c/FOSBParties/auction"
+                        class="btn btn-primary"
+                        target="_blank"
+                        rel="noopener"
+                        >Go to the Full Auction ✦</a
+                    >
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="container footer-inner">
+                <p class="footer-star">✦ ✦ ✦</p>
+                <p
+                    style="
+                        font-family: &quot;Cormorant Garamond&quot;, serif;
+                        font-size: 1.15rem;
+                        color: var(--silver);
+                        font-style: italic;
+                        opacity: 0.8;
+                    "
+                >
+                    The Galactic Gala — Salmon Bay K–8 Spring Fundraiser
+                </p>
+
+                <div class="footer-social">
+                    <a
+                        href="https://www.instagram.com/sbk8auction/"
+                        class="footer-social-link"
+                        aria-label="Instagram"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <rect
+                                x="2"
+                                y="2"
+                                width="20"
+                                height="20"
+                                rx="5"
+                                ry="5"
+                            />
+                            <path
+                                d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                            />
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                        </svg>
+                        <span>Instagram</span>
+                    </a>
+                    <a
+                        href="https://www.facebook.com/FriendsofSalmonBay/"
+                        class="footer-social-link"
+                        aria-label="Facebook"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path
+                                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                            />
+                        </svg>
+                        <span>Facebook</span>
+                    </a>
+                    <a
+                        href="https://www.friendsofsalmonbay.org/"
+                        class="footer-social-link"
+                        aria-label="Website"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="2" y1="12" x2="22" y2="12" />
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                            />
+                        </svg>
+                        <span>Website</span>
+                    </a>
+                </div>
+
+                <p>© 2025 Friends of Salmon Bay. All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="share.html">Share &amp; Donate</a></li>
+                    <li><a href="privacy.html">Privacy Statement</a></li>
+                    <li><a href="index.html">← Back to Event</a></li>
+                </ul>
+            </div>
+        </footer>
+
+        <script src="auction.js"></script>
+    </body>
+</html>

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "item-1",
+    "title": "Private Wine & Watercolor Night",
+    "category": "Experiences",
+    "description": "Enjoy a cozy evening of wine, snacks, and watercolor painting hosted at a private home. All skill levels welcome — no experience needed, just good vibes.",
+    "image": "",
+    "startingBid": 50,
+    "givebutter_url": "https://givebutter.com/c/FOSBParties/auction"
+  },
+  {
+    "id": "item-2",
+    "title": "Tide Pool Exploration with a Marine Biologist",
+    "category": "Experiences",
+    "description": "A guided tide pool adventure for up to 8 guests led by a local marine biologist. Learn about Pacific Northwest sea life up close — perfect for families or curious adults.",
+    "image": "",
+    "startingBid": 150,
+    "givebutter_url": "https://givebutter.com/c/FOSBParties/auction"
+  },
+  {
+    "id": "item-3",
+    "title": "VIP Dinner for 4 at a Local Restaurant",
+    "category": "Food & Drink",
+    "description": "An unforgettable dining experience for four at a beloved Seattle restaurant. Includes a reserved table, multi-course tasting menu, and a bottle of wine.",
+    "image": "",
+    "startingBid": 200,
+    "givebutter_url": "https://givebutter.com/c/FOSBParties/auction"
+  },
+  {
+    "id": "item-4",
+    "title": "Weekend Getaway — Cabin on the Olympic Peninsula",
+    "category": "Travel",
+    "description": "Two nights in a private cabin surrounded by old-growth forest near the Olympic National Park. Includes firewood, kayak rental, and a trail guide.",
+    "image": "",
+    "startingBid": 300,
+    "givebutter_url": "https://givebutter.com/c/FOSBParties/auction"
+  },
+  {
+    "id": "item-5",
+    "title": "Commissioned Watercolor Portrait",
+    "category": "Art",
+    "description": "A custom watercolor portrait of your family, pet, or home by a talented local artist. Delivered as an archival print, ready to frame.",
+    "image": "",
+    "startingBid": 125,
+    "givebutter_url": "https://givebutter.com/c/FOSBParties/auction"
+  },
+  {
+    "id": "item-6",
+    "title": "Sailing Day on Puget Sound",
+    "category": "Experiences",
+    "description": "Set sail on Puget Sound with an experienced skipper for a half-day adventure for up to 6 guests. Includes snacks, drinks, and stunning views of the Olympics.",
+    "image": "",
+    "startingBid": 250,
+    "givebutter_url": "https://givebutter.com/c/FOSBParties/auction"
+  },
+  {
+    "id": "item-7",
+    "title": "Brewery Tour & Tasting for 6",
+    "category": "Food & Drink",
+    "description": "A private behind-the-scenes tour of a local craft brewery followed by a guided tasting flight. A great outing for a group of beer-loving adults.",
+    "image": "",
+    "startingBid": 100,
+    "givebutter_url": "https://givebutter.com/c/FOSBParties/auction"
+  },
+  {
+    "id": "item-8",
+    "title": "Seattle Seahawks Season Tickets (2 Games)",
+    "category": "Sports & Entertainment",
+    "description": "Two tickets to two regular-season Seahawks home games at Lumen Field. Section, row, and game dates included in full auction listing.",
+    "image": "",
+    "startingBid": 175,
+    "givebutter_url": "https://givebutter.com/c/FOSBParties/auction"
+  }
+]
