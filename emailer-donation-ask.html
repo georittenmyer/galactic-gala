@@ -11,10 +11,23 @@
             img { -ms-interpolation-mode: bicubic; border: 0; display: block; }
             body { margin: 0 !important; padding: 0 !important; }
 
+            @keyframes pulse {
+                0%   { opacity: 1; }
+                50%  { opacity: 0.55; }
+                100% { opacity: 1; }
+            }
+            .cta-pulse {
+                animation: pulse 1.6s ease-in-out infinite;
+            }
+
             @media screen and (max-width: 600px) {
                 .wrapper { width: 100% !important; }
                 .content-block { padding: 24px 20px !important; }
                 .cta-btn { padding: 14px 28px !important; font-size: 15px !important; }
+                .header-logo { width: 60px !important; height: 60px !important; }
+                .header-logo-cell { width: 72px !important; }
+                .header-title { font-size: 24px !important; }
+                .header-sub { font-size: 11px !important; letter-spacing: 0.1em !important; }
             }
         </style>
     </head>
@@ -37,17 +50,18 @@
                             <td style="background-color:#ffffff;border-top:4px solid #c9a94a;border-left:1px solid #ddd;border-right:1px solid #ddd;border-radius:8px 8px 0 0;padding:24px 32px;">
                                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                                     <tr>
-                                        <td valign="middle" style="width:90px;">
+                                        <td valign="middle" class="header-logo-cell" style="width:106px;">
                                             <img src="https://sbk8raised.org/images/SBK8%20logo.png"
-                                                 alt="SBK8" width="72" height="72"
-                                                 style="display:block;width:72px;height:72px;border:0;" />
+                                                 alt="SBK8" width="90" height="90"
+                                                 class="header-logo"
+                                                 style="display:block;width:90px;height:90px;border:0;" />
                                         </td>
-                                        <td valign="middle" style="padding-left:16px;">
-                                            <p style="margin:0 0 3px;font-family:Arial,Helvetica,sans-serif;font-size:18px;font-weight:700;color:#1a1a1a;letter-spacing:0.02em;">
+                                        <td valign="middle" width="390" style="width:390px;padding-left:20px;">
+                                            <p class="header-title" style="margin:0 0 5px;font-family:Arial,Helvetica,sans-serif;font-size:38px;font-weight:700;color:#1a1a1a;letter-spacing:0.01em;line-height:1.1;">
                                                 Salmon Bay K&#8209;8
                                             </p>
-                                            <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#c9a94a;">
-                                                2026 Auction &nbsp;·&nbsp; Donation Request
+                                            <p class="header-sub" style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#c9a94a;">
+                                                Auction Donation Request
                                             </p>
                                         </td>
                                     </tr>
@@ -71,13 +85,11 @@
                                 </p>
 
                                 <p style="margin:0 0 20px;font-family:Arial,Helvetica,sans-serif;font-size:16px;color:#222222;line-height:1.7;">
-                                    Salmon Bay is one of the most beloved and hippest public schools in Ballard, and our families love supporting the local spots that make this neighborhood great. Businesses that donate are featured in our online auction and on our event website —
-                                    <a href="https://sbk8raised.org" target="_blank" style="color:#c9a94a;text-decoration:underline;">sbk8raised.org</a>
-                                    — giving you a shout-out to hundreds of Salmon Bay families in the community.
+                                    Salmon Bay is one of Seattle's most beloved schools, right in the heart of Ballard, and our families love supporting the local spots that help make Northwest Seattle the best. Businesses that donate are featured in our online auction and on our event website (<a href="https://sbk8raised.org" target="_blank" style="color:#c9a94a;text-decoration:underline;">sbk8raised.org</a>), giving you a shout-out to hundreds of Salmon Bay families in the community.
                                 </p>
 
                                 <p style="margin:0 0 28px;font-family:Arial,Helvetica,sans-serif;font-size:16px;color:#222222;line-height:1.7;">
-                                    Auction items are bid on online, and they often raise more than their original value — so even a small donation can go a long way.
+                                    Auction items are bid on online and they often raise more than their original value, so even a small donation can go a long way.
                                 </p>
 
                                 <!-- Event callout -->
@@ -100,7 +112,7 @@
                                 </table>
 
                                 <p style="margin:0 0 32px;font-family:Arial,Helvetica,sans-serif;font-size:16px;color:#222222;line-height:1.7;">
-                                    If you're open to participating, it only takes about a minute to fill out the form — we'll handle the rest:
+                                    If you're open to it, the form only takes about a minute and we'll handle the rest:
                                 </p>
 
                                 <!-- CTA Button -->
@@ -109,7 +121,7 @@
                                         <td align="center" style="padding:0 0 8px;">
                                             <table role="presentation" cellspacing="0" cellpadding="0" border="0">
                                                 <tr>
-                                                    <td align="center" style="background-color:#1a1a2e;border-radius:4px;">
+                                                    <td align="center" class="cta-pulse" style="background-color:#1a1a2e;border-radius:4px;">
                                                         <a class="cta-btn"
                                                            href="https://form.jotform.com/SBK8Auction/2026-auction-donation-form"
                                                            target="_blank"
@@ -145,7 +157,7 @@
 
                                 <!-- Closing -->
                                 <p style="margin:0 0 16px;font-family:Arial,Helvetica,sans-serif;font-size:16px;color:#222222;line-height:1.7;">
-                                    Thanks for helping make Ballard such a great community.
+                                    Thanks for helping make our community so great.
                                 </p>
                                 <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:16px;color:#222222;font-weight:700;">
                                     Geo &amp; Andy
