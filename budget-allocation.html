@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FOSB Budget Allocation 2024-2025</title>
+        <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+        <link rel="stylesheet" href="https://use.typekit.net/zpl5vsa.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="styles.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+        <style>
+            .content-wrapper {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+                margin-top: 3rem;
+                margin-bottom: 3rem;
+            }
+
+            .chart-wrapper {
+                background: var(--navy-light);
+                border: 1px solid rgba(232, 200, 122, 0.12);
+                border-radius: 10px;
+                padding: 2rem;
+                transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+            }
+
+            .chart-wrapper:hover {
+                border-color: rgba(232, 200, 122, 0.45);
+                box-shadow: 0 0 24px rgba(232, 200, 122, 0.12);
+                transform: translateY(-3px);
+            }
+
+            .chart-container {
+                position: relative;
+                height: 350px;
+                width: 100%;
+                margin-bottom: 1.5rem;
+            }
+
+            .chart-legend {
+                padding: 1rem;
+                background: rgba(232, 200, 122, 0.05);
+                border-radius: 8px;
+                border: 1px solid rgba(232, 200, 122, 0.1);
+            }
+
+            .legend-item {
+                display: flex;
+                align-items: center;
+                margin: 0.5rem 0;
+                font-size: 0.9rem;
+            }
+
+            .legend-color {
+                width: 14px;
+                height: 14px;
+                border-radius: 3px;
+                margin-right: 0.75rem;
+                flex-shrink: 0;
+            }
+
+            .legend-text {
+                flex: 1;
+                color: var(--silver);
+            }
+
+            .legend-value {
+                font-weight: 500;
+                color: var(--gold);
+                margin-left: auto;
+                text-align: right;
+            }
+
+            .summary {
+                background: rgba(232, 200, 122, 0.1);
+                padding: 1rem;
+                border-radius: 8px;
+                margin-top: 1rem;
+                text-align: center;
+                font-weight: 600;
+                color: var(--gold);
+                border: 1px solid rgba(232, 200, 122, 0.2);
+            }
+
+            .key-wrapper {
+                background: var(--navy-light);
+                border: 1px solid rgba(232, 200, 122, 0.12);
+                border-radius: 10px;
+                padding: 2rem;
+            }
+
+            .key-title {
+                font-family: var(--font-display);
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: var(--white);
+                margin-bottom: 1.5rem;
+                padding-bottom: 1rem;
+                border-bottom: 1px solid rgba(232, 200, 122, 0.2);
+            }
+
+            .category-item {
+                margin-bottom: 1.5rem;
+                padding-bottom: 1.25rem;
+                border-bottom: 1px solid rgba(232, 200, 122, 0.1);
+            }
+
+            .category-item:last-child {
+                border-bottom: none;
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+
+            .category-header {
+                display: flex;
+                align-items: center;
+                margin-bottom: 0.5rem;
+                gap: 0.75rem;
+            }
+
+            .category-color {
+                width: 14px;
+                height: 14px;
+                border-radius: 3px;
+                flex-shrink: 0;
+            }
+
+            .category-name {
+                font-weight: 600;
+                color: var(--white);
+                font-size: 1rem;
+                flex: 1;
+            }
+
+            .category-amount {
+                font-size: 0.9rem;
+                color: var(--gold);
+                font-weight: bold;
+            }
+
+            .category-description {
+                color: var(--mid);
+                font-size: 0.85rem;
+                line-height: 1.5;
+                margin-left: 1.5rem;
+            }
+
+            @media (max-width: 768px) {
+                .content-wrapper {
+                    grid-template-columns: 1fr;
+                }
+
+                .chart-container {
+                    height: 300px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Animated starfield background -->
+        <canvas id="starfield"></canvas>
+        <!-- =============================================
+     HEADER NAVIGATION
+     ============================================= -->
+        <header class="site-header">
+            <nav class="nav container">
+                <a href="index.html" class="nav-logo">
+                    <span class="nav-logo-text">Salmon Bay K–8 ✦</span>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html#event">Event</a></li>
+                    <li><a href="index.html#ways-to-help">Ways to Help</a></li>
+                    <li><a href="index.html#donate">Donate</a></li>
+                </ul>
+
+                <a
+                    href="https://givebutter.com/SBk8-spring2026"
+                    class="btn btn-primary nav-cta"
+                    target="_blank"
+                    rel="noopener"
+                    >Donate &amp; Tickets</a
+                >
+
+                <button class="hamburger" id="hamburger" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
+
+            <div class="mobile-menu" id="mobile-menu">
+                <ul>
+                    <li><a href="index.html#event">Event</a></li>
+                    <li><a href="index.html#ways-to-help">Ways to Help</a></li>
+                    <li><a href="index.html#donate">Donate</a></li>
+                </ul>
+                <a
+                    href="https://givebutter.com/SBk8-spring2026"
+                    class="btn btn-primary"
+                    target="_blank"
+                    rel="noopener"
+                    >Donate &amp; Tickets</a
+                >
+            </div>
+        </header>
+
+        <main>
+            <section class="section section--mid">
+                <div class="container">
+                    <div style="margin-bottom: 2rem;">
+                        <a href="index.html#mission" class="btn btn-outline" style="font-size: 0.85rem;">← Back to Main</a>
+                    </div>
+                    <p class="section-label">✦ Budget Information</p>
+                    <h2 class="section-title">FOSB Budget Allocation 2024-2025</h2>
+                    <div class="divider"></div>
+
+                    <div class="content-wrapper">
+                        <!-- Chart Section -->
+                        <div class="chart-wrapper">
+                            <div class="chart-container">
+                                <canvas id="budgetChart"></canvas>
+                            </div>
+
+                            <div class="chart-legend" id="budgetLegend"></div>
+
+                            <div class="summary">
+                                Total Budget: $327,170
+                            </div>
+                        </div>
+
+                        <!-- Key/Explanation Section -->
+                        <div class="key-wrapper">
+                            <div class="key-title">Budget Categories</div>
+                            <div id="categoryKey"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- =============================================
+     FOOTER
+     ============================================= -->
+        <footer class="site-footer">
+            <div class="container footer-inner">
+                <p class="footer-star">✦ ✦ ✦</p>
+                <p
+                    style="
+                        font-family: &quot;Cormorant Garamond&quot;, serif;
+                        font-size: 1.15rem;
+                        color: var(--silver);
+                        font-style: italic;
+                        opacity: 0.8;
+                    "
+                >
+                    The Galactic Gala — Salmon Bay K–8 Spring Fundraiser
+                </p>
+                <p style="margin-top: 1rem">© 2025 Friends of Salmon Bay. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script>
+            // Color palette
+            const colors = [
+                '#e8c87a',  // Gold - Salmon Bay School Support
+                '#78a8e8',  // Blue - Additional School Support
+                '#b878e8',  // Purple - Equity Funding
+                '#78e8c8',  // Teal - Committee Support
+                '#e89878',  // Orange - FOSB Administration
+                '#a8d878'   // Green - Volunteer Coordinator Support
+            ];
+
+            // Budget data
+            const budgetData = {
+                labels: [
+                    'Salmon Bay School Support',
+                    'Additional School Support',
+                    'Equity Funding',
+                    'Committee Support',
+                    'FOSB Administration',
+                    'Volunteer Coordinator Support'
+                ],
+                values: [139000, 71450, 48000, 36700, 22250, 9770],
+                descriptions: [
+                    'Pays for FTEs (Full-Time Equivalents) not funded by the district. For 2024-25, supports part of one MS ELA position and part of the K-8 art teacher.',
+                    'Includes classroom support ($150 per FTE), evening staffing support, drama stage tech, elementary SEP supplies, kindergarten jumpstart, and school supplies & field trips.',
+                    'Provides professional development stipends for Racial Equity Team (RET), supporting 5 staff members for 1 hour per month for 10 months.',
+                    'Supports various school committees and events including auction, bike to school, building community initiatives, direct giving campaign, EDI programs, family & student learning, garden initiatives, legislative participation, parent information exchange (PIE), and traffic safety.',
+                    'Covers FOSB administrative operations including liability insurance, bank fees, bookkeeper costs, communications, professional development, meeting expenses, fundraising fees (credit card processing, bulk mail, IATS, Maestro), QuickBooks, state/city filings, and office supplies.',
+                    'Supports the FOSB volunteer coordinator position through stipend and operational expenses to manage volunteer activities and engagement.'
+                ]
+            };
+
+            // Create chart
+            const ctx = document.getElementById('budgetChart').getContext('2d');
+            const budgetChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: budgetData.labels,
+                    datasets: [{
+                        data: budgetData.values,
+                        backgroundColor: colors,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = '$' + context.parsed.toLocaleString('en-US');
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = ((context.parsed / total) * 100).toFixed(1);
+                                    return label + ': ' + value + ' (' + percentage + '%)';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Create legend
+            const total = budgetData.values.reduce((a, b) => a + b, 0);
+            const legendHTML = budgetData.labels.map((label, index) => {
+                const value = budgetData.values[index];
+                const percentage = ((value / total) * 100).toFixed(1);
+                return `
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: ${colors[index]}"></div>
+                        <span class="legend-text">${label}</span>
+                        <span class="legend-value">$${value.toLocaleString('en-US')}</span>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('budgetLegend').innerHTML = legendHTML;
+
+            // Create category key
+            const keyHTML = budgetData.labels.map((label, index) => {
+                const value = budgetData.values[index];
+                return `
+                    <div class="category-item">
+                        <div class="category-header">
+                            <div class="category-color" style="background-color: ${colors[index]}"></div>
+                            <span class="category-name">${label}</span>
+                            <span class="category-amount">$${value.toLocaleString('en-US')}</span>
+                        </div>
+                        <div class="category-description">${budgetData.descriptions[index]}</div>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('categoryKey').innerHTML = keyHTML;
+        </script>
+
+        <script src="main.js"></script>
+    </body>
+</html>

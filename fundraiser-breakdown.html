@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Salmon Bay K8 Spring Fundraiser - Results</title>
+        <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+        <link rel="stylesheet" href="https://use.typekit.net/zpl5vsa.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="styles.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+        <style>
+            .charts-wrapper {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+                margin-top: 3rem;
+                margin-bottom: 3rem;
+            }
+
+            .chart-container {
+                background: var(--navy-light);
+                border: 1px solid rgba(232, 200, 122, 0.12);
+                border-radius: 10px;
+                padding: 2rem;
+                transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+            }
+
+            .chart-container:hover {
+                border-color: rgba(232, 200, 122, 0.45);
+                box-shadow: 0 0 24px rgba(232, 200, 122, 0.12);
+                transform: translateY(-3px);
+            }
+
+            .chart-container h2 {
+                font-family: var(--font-display);
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: var(--white);
+                text-align: center;
+                margin-bottom: 1.5rem;
+            }
+
+            .chart-wrapper {
+                position: relative;
+                height: 350px;
+                width: 100%;
+            }
+
+            .chart-legend {
+                margin-top: 1.5rem;
+                padding: 1rem;
+                background: rgba(232, 200, 122, 0.05);
+                border-radius: 8px;
+                border: 1px solid rgba(232, 200, 122, 0.1);
+            }
+
+            .legend-item {
+                display: flex;
+                align-items: center;
+                margin: 0.5rem 0;
+                font-size: 0.9rem;
+            }
+
+            .legend-color {
+                width: 12px;
+                height: 12px;
+                border-radius: 2px;
+                margin-right: 0.75rem;
+                flex-shrink: 0;
+            }
+
+            .legend-text {
+                flex: 1;
+                color: var(--silver);
+            }
+
+            .legend-value {
+                font-weight: 500;
+                color: var(--gold);
+                margin-left: auto;
+                text-align: right;
+            }
+
+            @media (max-width: 768px) {
+                .charts-wrapper {
+                    grid-template-columns: 1fr;
+                }
+
+                .chart-wrapper {
+                    height: 300px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Animated starfield background -->
+        <canvas id="starfield"></canvas>
+        <!-- =============================================
+     HEADER NAVIGATION
+     ============================================= -->
+        <header class="site-header">
+            <nav class="nav container">
+                <a href="index.html" class="nav-logo">
+                    <span class="nav-logo-text">Salmon Bay K–8 ✦</span>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html#event">Event</a></li>
+                    <li><a href="index.html#ways-to-help">Ways to Help</a></li>
+                    <li><a href="index.html#donate">Donate</a></li>
+                </ul>
+
+                <a
+                    href="https://givebutter.com/SBk8-spring2026"
+                    class="btn btn-primary nav-cta"
+                    target="_blank"
+                    rel="noopener"
+                    >Donate &amp; Tickets</a
+                >
+
+                <button class="hamburger" id="hamburger" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
+
+            <div class="mobile-menu" id="mobile-menu">
+                <ul>
+                    <li><a href="index.html#event">Event</a></li>
+                    <li><a href="index.html#ways-to-help">Ways to Help</a></li>
+                    <li><a href="index.html#donate">Donate</a></li>
+                </ul>
+                <a
+                    href="https://givebutter.com/SBk8-spring2026"
+                    class="btn btn-primary"
+                    target="_blank"
+                    rel="noopener"
+                    >Donate &amp; Tickets</a
+                >
+            </div>
+        </header>
+
+        <main>
+            <section class="section section--mid">
+                <div class="container">
+                    <div style="margin-bottom: 2rem;">
+                        <a href="index.html#mission" class="btn btn-outline" style="font-size: 0.85rem;">← Back to Main</a>
+                    </div>
+                    <p class="section-label">✦ Fundraiser Results</p>
+                    <h2 class="section-title">2025 Spring Fundraiser Breakdown</h2>
+                    <div class="divider"></div>
+
+                    <div class="charts-wrapper">
+                        <!-- Chart 1: Subtype Breakdown -->
+                        <div class="chart-container">
+                            <h2>Revenue by Category</h2>
+                            <div class="chart-wrapper">
+                                <canvas id="subtypeChart"></canvas>
+                            </div>
+                            <div class="chart-legend" id="subtypeLegend"></div>
+                        </div>
+
+                        <!-- Chart 2: Participation by Category -->
+                        <div class="chart-container">
+                            <h2>Participation by Category</h2>
+                            <div class="chart-wrapper">
+                                <canvas id="buyersChart"></canvas>
+                            </div>
+                            <div class="chart-legend" id="buyersLegend"></div>
+                            <div style="margin-top: 1rem; padding: 0.75rem; background: rgba(232, 200, 122, 0.08); border-left: 3px solid var(--gold); font-size: 0.85rem; color: var(--mid); border-radius: 4px;">
+                                <strong style="color: var(--silver);">Note:</strong> 2-Ticket Packages are counted as 2 participants
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- =============================================
+     FOOTER
+     ============================================= -->
+        <footer class="site-footer">
+            <div class="container footer-inner">
+                <p class="footer-star">✦ ✦ ✦</p>
+                <p
+                    style="
+                        font-family: &quot;Cormorant Garamond&quot;, serif;
+                        font-size: 1.15rem;
+                        color: var(--silver);
+                        font-style: italic;
+                        opacity: 0.8;
+                    "
+                >
+                    The Galactic Gala — Salmon Bay K–8 Spring Fundraiser
+                </p>
+                <p style="margin-top: 1rem">© 2025 Friends of Salmon Bay. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script>
+            // Color palettes matching site theme
+            const colors1 = [
+                "#e8c87a",
+                "#78a8e8",
+                "#b878e8",
+                "#78e8c8",
+                "#e89878",
+            ];
+            const colors2 = [
+                "#e8c87a",
+                "#78a8e8",
+                "#b878e8",
+                "#78e8c8",
+            ];
+
+            // Chart 1: Subtype Breakdown
+            const subtypeCtx = document
+                .getElementById("subtypeChart")
+                .getContext("2d");
+            const subtypeData = {
+                labels: [
+                    "Donations",
+                    "Auction Items",
+                    "Buy-in Parties",
+                    "Admission/Tickets",
+                    "Raffle",
+                ],
+                datasets: [
+                    {
+                        data: [60289, 22936, 9795, 3530, 3450],
+                        backgroundColor: colors1,
+                        borderColor: "#fff",
+                        borderWidth: 2,
+                    },
+                ],
+            };
+
+            const subtypeChart = new Chart(subtypeCtx, {
+                type: "doughnut",
+                data: subtypeData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    const label = context.label || "";
+                                    const value =
+                                        "$" +
+                                        context.parsed.toLocaleString("en-US", {
+                                            minimumFractionDigits: 2,
+                                        });
+                                    const total = context.dataset.data.reduce(
+                                        (a, b) => a + b,
+                                        0,
+                                    );
+                                    const percentage = (
+                                        (context.parsed / total) *
+                                        100
+                                    ).toFixed(1);
+                                    return (
+                                        label +
+                                        ": " +
+                                        value +
+                                        " (" +
+                                        percentage +
+                                        "%)"
+                                    );
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+
+            // Create legend for Chart 1
+            const subtypeData_values = [60289, 22936, 9795, 3530, 3450];
+            const subtypeTotal = subtypeData_values.reduce((a, b) => a + b, 0);
+            const subtypeLegendHTML = subtypeData.labels
+                .map(
+                    (label, index) => `
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: ${colors1[index]}"></div>
+                <span class="legend-text">${label}</span>
+                <span class="legend-value">$${subtypeData_values[index].toLocaleString("en-US", { minimumFractionDigits: 2 })} (${((subtypeData_values[index] / subtypeTotal) * 100).toFixed(1)}%)</span>
+            </div>
+        `,
+                )
+                .join("");
+            document.getElementById("subtypeLegend").innerHTML =
+                subtypeLegendHTML;
+
+            // Chart 2: Participation by Category (with 2-ticket packs counted as 2)
+            const buyersCtx = document
+                .getElementById("buyersChart")
+                .getContext("2d");
+            const buyersData = {
+                labels: [
+                    "Admission/Tickets",
+                    "Buy-in Parties",
+                    "Raffle",
+                    "Auction Items",
+                ],
+                datasets: [
+                    {
+                        data: [216, 123, 83, 59],
+                        backgroundColor: colors2,
+                        borderColor: "#fff",
+                        borderWidth: 2,
+                    },
+                ],
+            };
+
+            const buyersChart = new Chart(buyersCtx, {
+                type: "doughnut",
+                data: buyersData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    const label = context.label || "";
+                                    const value = context.parsed;
+                                    const total = context.dataset.data.reduce(
+                                        (a, b) => a + b,
+                                        0,
+                                    );
+                                    const percentage = (
+                                        (context.parsed / total) *
+                                        100
+                                    ).toFixed(1);
+                                    return (
+                                        label +
+                                        ": " +
+                                        value +
+                                        " buyers (" +
+                                        percentage +
+                                        "%)"
+                                    );
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+
+            // Create legend for Chart 2
+            const buyersData_values = [216, 123, 83, 59];
+            const buyersTotal = buyersData_values.reduce((a, b) => a + b, 0);
+            const buyersLegendHTML = buyersData.labels
+                .map(
+                    (label, index) => `
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: ${colors2[index]}"></div>
+                <span class="legend-text">${label}</span>
+                <span class="legend-value">${buyersData_values[index]} (${((buyersData_values[index] / buyersTotal) * 100).toFixed(1)}%)</span>
+            </div>
+        `,
+                )
+                .join("");
+            document.getElementById("buyersLegend").innerHTML =
+                buyersLegendHTML;
+        </script>
+
+        <script src="main.js"></script>
+    </body>
+</html>
