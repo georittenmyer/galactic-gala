@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>FOSB Budget Allocation 2024-2025</title>
+        <title>FOSB Budget Allocation 2025-2026 & 2024-2025</title>
         <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
         <link rel="stylesheet" href="https://use.typekit.net/zpl5vsa.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -217,27 +217,54 @@
                         <a href="index.html#mission" class="btn btn-outline" style="font-size: 0.85rem;">← Back to Main</a>
                     </div>
                     <p class="section-label">✦ Budget Information</p>
-                    <h2 class="section-title">FOSB Budget Allocation 2024-2025</h2>
+                    <h2 class="section-title">FOSB Budget Allocation</h2>
                     <div class="divider"></div>
+
+                    <!-- 2025-2026 Working Budget -->
+                    <h3 style="color: var(--gold); font-family: var(--font-display); font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1.5rem; text-align: center;">Working Budget 2025-2026</h3>
 
                     <div class="content-wrapper">
                         <!-- Chart Section -->
                         <div class="chart-wrapper">
                             <div class="chart-container">
-                                <canvas id="budgetChart"></canvas>
+                                <canvas id="budgetChart2026"></canvas>
                             </div>
 
-                            <div class="chart-legend" id="budgetLegend"></div>
+                            <div class="chart-legend" id="budgetLegend2026"></div>
 
                             <div class="summary">
-                                Total Budget: $327,170
+                                Total Budget: $290,945
                             </div>
                         </div>
 
                         <!-- Key/Explanation Section -->
                         <div class="key-wrapper">
                             <div class="key-title">Budget Categories</div>
-                            <div id="categoryKey"></div>
+                            <div id="categoryKey2026"></div>
+                        </div>
+                    </div>
+
+                    <!-- 2024-2025 Updated Budget -->
+                    <h3 style="color: var(--gold); font-family: var(--font-display); font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1.5rem; text-align: center;">Updated Fiscal Year 2024-2025</h3>
+
+                    <div class="content-wrapper">
+                        <!-- Chart Section -->
+                        <div class="chart-wrapper">
+                            <div class="chart-container">
+                                <canvas id="budgetChart2025"></canvas>
+                            </div>
+
+                            <div class="chart-legend" id="budgetLegend2025"></div>
+
+                            <div class="summary">
+                                Total Budget: $235,306
+                            </div>
+                        </div>
+
+                        <!-- Key/Explanation Section -->
+                        <div class="key-wrapper">
+                            <div class="key-title">Budget Categories</div>
+                            <div id="categoryKey2025"></div>
                         </div>
                     </div>
                 </div>
@@ -266,46 +293,67 @@
         </footer>
 
         <script>
-            // Color palette
-            const colors = [
+            // Color palettes
+            const colors2026 = [
                 '#e8c87a',  // Gold - Salmon Bay School Support
-                '#78a8e8',  // Blue - Additional School Support
-                '#b878e8',  // Purple - Equity Funding
+                '#78a8e8',  // Blue - Scholarships & Equity
+                '#e89878',  // Orange - Additional School Support
                 '#78e8c8',  // Teal - Committee Support
-                '#e89878',  // Orange - FOSB Administration
-                '#a8d878'   // Green - Volunteer Coordinator Support
+                '#b878e8'   // Purple - FOSB Administration
             ];
 
-            // Budget data
-            const budgetData = {
+            const colors2025 = [
+                '#e8c87a',  // Gold - Salmon Bay School Support
+                '#78a8e8',  // Blue - Scholarships and Equity
+                '#e89878',  // Orange - Volunteer Coordinator Support
+                '#78e8c8'   // Teal - Committee Support & FOSB Administration
+            ];
+
+            // 2025-2026 Proposed budget data
+            const budgetData2026 = {
                 labels: [
                     'Salmon Bay School Support',
+                    'Scholarships & Equity',
                     'Additional School Support',
-                    'Equity Funding',
                     'Committee Support',
-                    'FOSB Administration',
-                    'Volunteer Coordinator Support'
+                    'FOSB Administration'
                 ],
-                values: [139000, 71450, 48000, 36700, 22250, 9770],
+                values: [154575, 64000, 39400, 18650, 13270],
                 descriptions: [
-                    'Pays for FTEs (Full-Time Equivalents) not funded by the district. For 2024-25, supports part of one MS ELA position and part of the K-8 art teacher.',
-                    'Includes classroom support ($150 per FTE), evening staffing support, drama stage tech, elementary SEP supplies, kindergarten jumpstart, and school supplies & field trips.',
-                    'Provides professional development stipends for Racial Equity Team (RET), supporting 5 staff members for 1 hour per month for 10 months.',
-                    'Supports various school committees and events including auction, bike to school, building community initiatives, direct giving campaign, EDI programs, family & student learning, garden initiatives, legislative participation, parent information exchange (PIE), and traffic safety.',
-                    'Covers FOSB administrative operations including liability insurance, bank fees, bookkeeper costs, communications, professional development, meeting expenses, fundraising fees (credit card processing, bulk mail, IATS, Maestro), QuickBooks, state/city filings, and office supplies.',
-                    'Supports the FOSB volunteer coordinator position through stipend and operational expenses to manage volunteer activities and engagement.'
+                    'Pays for FTEs (Full-Time Equivalents) and school operations not funded by the district. For 2025-26, includes school grant ($140,000), professional development ($3,000), classroom support ($6,575), and evening staffing support ($5,000).',
+                    'Provides FOSB scholarships for K-8 camps, Fall Connections, After School Programs, SEP, and other enrichment activities ($56,000), plus Racial Equity Fund for professional development and support ($8,000).',
+                    'Supports school programs and activities including drama tech, elementary SEP supplies, kindergarten readiness, lantern festival, middle school exploratory supplies, WEB programs, yearbooks, grade activities, cafetorium updates, athletics, and teacher mini-grant fund.',
+                    'Supports school community engagement including advocacy and legislative participation ($500), after school programs, auction expenses ($4,000), CANSSPA partnership, building community initiative ($5,000), direct giving ($750), garden and grounds ($300), traffic safety ($500), PIE ($3,500), and staff appreciation ($4,100).',
+                    'Covers FOSB administrative operations including insurance ($600), communications ($900), FOSB meetings ($700), fundraising credit card fees ($5,000), QuickBooks license ($100), bookkeepers ($5,000), state/city filings ($300), and supplies ($430).'
                 ]
             };
 
-            // Create chart
-            const ctx = document.getElementById('budgetChart').getContext('2d');
-            const budgetChart = new Chart(ctx, {
+            // 2024-2025 Updated budget data
+            const budgetData2025 = {
+                labels: [
+                    'Salmon Bay School Support',
+                    'Scholarships and Equity',
+                    'Volunteer Coordinator Support',
+                    'Committee Support & FOSB Administration'
+                ],
+                values: [165222, 41728, 6063, 19034],
+                descriptions: [
+                    'Pays for FTEs (Full-Time Equivalents) not funded by the district. For 2024-25, supports part of one MS ELA position and part of the K-8 art teacher, plus school grants, classroom support, evening staffing, drama tech, kindergarten programs, middle school supplies, yearbooks, and scholarships.',
+                    'Includes FOSB scholarships for K-8 camps, Fall Connections, After School Programs, and SEP, plus the Racial Equity Fund for professional development support.',
+                    'Supports the FOSB volunteer coordinator position through stipend and operational expenses to manage volunteer activities and engagement, including staff appreciations, school snacks, and event supplies.',
+                    'Covers FOSB administrative operations (liability insurance, bank fees, bookkeeper costs, communications, professional development, meeting expenses, fundraising fees, QuickBooks, state/city filings, office supplies) and supports various school committees and events including advocacy, auction expenses, building community initiatives, direct giving campaign, EDI programs, family & student learning, garden initiatives, legislative participation, parent information exchange (PIE), and traffic safety.'
+                ]
+            };
+
+            // Create 2025-2026 chart
+            const ctx2026 = document.getElementById('budgetChart2026').getContext('2d');
+            const budgetChart2026 = new Chart(ctx2026, {
                 type: 'doughnut',
                 data: {
-                    labels: budgetData.labels,
+                    labels: budgetData2026.labels,
                     datasets: [{
-                        data: budgetData.values,
-                        backgroundColor: colors,
+                        data: budgetData2026.values,
+                        backgroundColor: colors2026,
                         borderColor: '#fff',
                         borderWidth: 2
                     }]
@@ -332,38 +380,106 @@
                 }
             });
 
-            // Create legend
-            const total = budgetData.values.reduce((a, b) => a + b, 0);
-            const legendHTML = budgetData.labels.map((label, index) => {
-                const value = budgetData.values[index];
-                const percentage = ((value / total) * 100).toFixed(1);
+            // Create 2025-2026 legend
+            const total2026 = budgetData2026.values.reduce((a, b) => a + b, 0);
+            const legendHTML2026 = budgetData2026.labels.map((label, index) => {
+                const value = budgetData2026.values[index];
+                const percentage = ((value / total2026) * 100).toFixed(1);
                 return `
                     <div class="legend-item">
-                        <div class="legend-color" style="background-color: ${colors[index]}"></div>
+                        <div class="legend-color" style="background-color: ${colors2026[index]}"></div>
                         <span class="legend-text">${label}</span>
                         <span class="legend-value">$${value.toLocaleString('en-US')}</span>
                     </div>
                 `;
             }).join('');
 
-            document.getElementById('budgetLegend').innerHTML = legendHTML;
+            document.getElementById('budgetLegend2026').innerHTML = legendHTML2026;
 
-            // Create category key
-            const keyHTML = budgetData.labels.map((label, index) => {
-                const value = budgetData.values[index];
+            // Create 2025-2026 category key
+            const keyHTML2026 = budgetData2026.labels.map((label, index) => {
+                const value = budgetData2026.values[index];
                 return `
                     <div class="category-item">
                         <div class="category-header">
-                            <div class="category-color" style="background-color: ${colors[index]}"></div>
+                            <div class="category-color" style="background-color: ${colors2026[index]}"></div>
                             <span class="category-name">${label}</span>
                             <span class="category-amount">$${value.toLocaleString('en-US')}</span>
                         </div>
-                        <div class="category-description">${budgetData.descriptions[index]}</div>
+                        <div class="category-description">${budgetData2026.descriptions[index]}</div>
                     </div>
                 `;
             }).join('');
 
-            document.getElementById('categoryKey').innerHTML = keyHTML;
+            document.getElementById('categoryKey2026').innerHTML = keyHTML2026;
+
+            // Create 2024-2025 chart
+            const ctx2025 = document.getElementById('budgetChart2025').getContext('2d');
+            const budgetChart2025 = new Chart(ctx2025, {
+                type: 'doughnut',
+                data: {
+                    labels: budgetData2025.labels,
+                    datasets: [{
+                        data: budgetData2025.values,
+                        backgroundColor: colors2025,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = '$' + context.parsed.toLocaleString('en-US');
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = ((context.parsed / total) * 100).toFixed(1);
+                                    return label + ': ' + value + ' (' + percentage + '%)';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Create 2024-2025 legend
+            const total2025 = budgetData2025.values.reduce((a, b) => a + b, 0);
+            const legendHTML2025 = budgetData2025.labels.map((label, index) => {
+                const value = budgetData2025.values[index];
+                const percentage = ((value / total2025) * 100).toFixed(1);
+                return `
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: ${colors2025[index]}"></div>
+                        <span class="legend-text">${label}</span>
+                        <span class="legend-value">$${value.toLocaleString('en-US')}</span>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('budgetLegend2025').innerHTML = legendHTML2025;
+
+            // Create 2024-2025 category key
+            const keyHTML2025 = budgetData2025.labels.map((label, index) => {
+                const value = budgetData2025.values[index];
+                return `
+                    <div class="category-item">
+                        <div class="category-header">
+                            <div class="category-color" style="background-color: ${colors2025[index]}"></div>
+                            <span class="category-name">${label}</span>
+                            <span class="category-amount">$${value.toLocaleString('en-US')}</span>
+                        </div>
+                        <div class="category-description">${budgetData2025.descriptions[index]}</div>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('categoryKey2025').innerHTML = keyHTML2025;
         </script>
 
         <script src="main.js"></script>
