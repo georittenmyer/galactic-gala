@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4J2NBF3TX0"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-4J2NBF3TX0');
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Chip In — SBK Spring Fundraiser</title>
+        <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+        <link rel="stylesheet" href="https://use.typekit.net/zpl5vsa.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <!-- Animated starfield background -->
+        <canvas id="starfield"></canvas>
+
+        <!-- HEADER NAVIGATION -->
+        <header class="site-header">
+            <nav class="nav container">
+                <a href="index.html" class="nav-logo">
+                    <span class="nav-logo-text">Salmon Bay K–8 ✦</span>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html#event">Event</a></li>
+                    <li><a href="index.html#ways-to-help">Ways to Help</a></li>
+                    <li><a href="index.html#mission">Donate</a></li>
+                    <li><a href="index.html#volunteer">Volunteer</a></li>
+                </ul>
+
+                <a
+                    href="https://givebutter.com/SBk8-spring2026"
+                    class="btn btn-primary nav-cta"
+                    target="_blank"
+                    rel="noopener"
+                    >Donate &amp; Tickets</a
+                >
+
+                <button class="hamburger" id="hamburger" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
+
+            <div class="mobile-menu" id="mobile-menu">
+                <ul>
+                    <li><a href="index.html#event">Event</a></li>
+                    <li><a href="index.html#ways-to-help">Ways to Help</a></li>
+                    <li><a href="index.html#mission">Donate</a></li>
+                    <li><a href="index.html#volunteer">Volunteer</a></li>
+                </ul>
+                <a
+                    href="https://givebutter.com/SBk8-spring2026"
+                    class="btn btn-primary"
+                    target="_blank"
+                    rel="noopener"
+                    >Donate &amp; Tickets</a
+                >
+            </div>
+        </header>
+
+        <main>
+            <!-- Chip In Content Section -->
+            <section class="section" style="padding-top: 2rem;">
+                <div class="container" style="max-width: 700px; margin: 0 auto; text-align: center;">
+                    <p class="section-label">✦ Help Us Make It Special</p>
+                    <h1 class="section-title" style="font-size: 2.5rem; margin-bottom: 2rem;">Nourish Our Staff</h1>
+                    <div class="divider" style="margin: 0 auto 2rem;"></div>
+
+                    <div style="font-size: 1.1rem; line-height: 1.8; color: var(--text); text-align: center;">
+                        <p>
+                            We're a small team of volunteers who organize this event because we love the school. Last year we hosted it with zero budget—everything was donated or paid for out of pocket by the team as our way of giving back.
+                        </p>
+
+                        <p>
+                            This year we're setting up a small "Wine &amp; Dine Our Teachers" fund. It's not an official FOSB fundraiser and it's not tax-deductible—just a friendly pool of funds (capped at $500) to provide snacks and drink tokens for our teachers during the event.
+                        </p>
+
+                        <p>
+                            If you'd like to chip in, we'd appreciate it! 🍷✨
+                        </p>
+                    </div>
+
+                    <!-- Venmo Link -->
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--silver); text-align: center;">
+                        <p class="section-label">✦ Venmo Us</p>
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; justify-content: center;">
+                            <a href="[VENMO_LINK]" class="btn btn-primary" target="_blank" rel="noopener" style="text-align: center;">
+                                Wine &amp; Dine Our Teachers Fund
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <div class="container footer-inner">
+                <p class="footer-star">✦ ✦ ✦</p>
+                <p
+                    style="
+                        font-family: &quot;Cormorant Garamond&quot;, serif;
+                        font-size: 1.15rem;
+                        color: var(--silver);
+                        font-style: italic;
+                        opacity: 0.8;
+                    "
+                >
+                    The Galactic Gala — Salmon Bay K–8 Spring Fundraiser
+                </p>
+
+                <div class="footer-social">
+                    <a
+                        href="https://www.instagram.com/sbk8auction/"
+                        class="footer-social-link"
+                        aria-label="Instagram"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <rect
+                                x="2"
+                                y="2"
+                                width="20"
+                                height="20"
+                                rx="5"
+                                ry="5"
+                            />
+                            <path
+                                d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                            />
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                        </svg>
+                        <span>Instagram</span>
+                    </a>
+                    <a
+                        href="https://www.facebook.com/FriendsofSalmonBay/"
+                        class="footer-social-link"
+                        aria-label="Facebook"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path
+                                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                            />
+                        </svg>
+                        <span>Facebook</span>
+                    </a>
+                    <a
+                        href="https://www.friendsofsalmonbay.org/"
+                        class="footer-social-link"
+                        aria-label="Website"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="2" y1="12" x2="22" y2="12" />
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                            />
+                        </svg>
+                        <span>Website</span>
+                    </a>
+                </div>
+
+                <p>© 2025 Friends of Salmon Bay. All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="share.html">Share &amp; Donate</a></li>
+                    <li><a href="privacy.html">Privacy Statement</a></li>
+                    <li>
+                        <a
+                            href="/cdn-cgi/l/email-protection#d7b6a2b4a3beb8b997a4b6bbbab8b9b5b6aef9b8a5b0"
+                            >Contact Us</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </footer>
+
+        <script
+            data-cfasync="false"
+            src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+        ></script>
+        <script src="main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-4J2NBF3TX0"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-4J2NBF3TX0");
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Volunteer Sign Up — SBK Spring Fundraiser</title>
+        <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+        <link rel="stylesheet" href="https://use.typekit.net/zpl5vsa.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="styles.css" />
+        <!-- EmailJS SDK -->
+        <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"
+        ></script>
+        <style>
+            .form-group {
+                margin-bottom: 1.5rem;
+            }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 0.5rem;
+                font-weight: 500;
+                color: var(--text);
+                font-family: "Outfit", sans-serif;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                width: 100%;
+                padding: 0.75rem;
+                border: 2px solid var(--silver);
+                border-radius: 4px;
+                font-family: "Outfit", sans-serif;
+                font-size: 1rem;
+                background-color: rgba(255, 255, 255, 0.95);
+                color: var(--text);
+                transition: border-color 0.2s;
+            }
+
+            .form-group input:focus,
+            .form-group select:focus,
+            .form-group textarea:focus {
+                outline: none;
+                border-color: var(--gold);
+            }
+
+            .form-group textarea {
+                resize: vertical;
+                min-height: 120px;
+            }
+
+            .form-submit {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                margin-top: 2rem;
+            }
+
+            .success-message {
+                display: none;
+                background-color: rgba(0, 128, 0, 0.1);
+                border: 2px solid var(--gold);
+                border-radius: 4px;
+                padding: 1rem;
+                margin-bottom: 2rem;
+                text-align: center;
+                color: var(--text);
+                font-weight: 500;
+            }
+
+            .success-message.show {
+                display: block;
+            }
+
+            .error-message {
+                display: none;
+                background-color: rgba(255, 0, 0, 0.1);
+                border: 2px solid #ff6b6b;
+                border-radius: 4px;
+                padding: 1rem;
+                margin-bottom: 2rem;
+                text-align: center;
+                color: #ff6b6b;
+                font-weight: 500;
+            }
+
+            .error-message.show {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Animated starfield background -->
+        <canvas id="starfield"></canvas>
+
+        <!-- HEADER NAVIGATION -->
+        <header class="site-header">
+            <nav class="nav container">
+                <a href="index.html" class="nav-logo">
+                    <span class="nav-logo-text">Salmon Bay K–8 ✦</span>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html#event">Event</a></li>
+                    <li><a href="index.html#ways-to-help">Ways to Help</a></li>
+                    <li><a href="index.html#mission">Donate</a></li>
+                    <li><a href="index.html#volunteer">Volunteer</a></li>
+                </ul>
+
+                <a
+                    href="https://givebutter.com/SBk8-spring2026"
+                    class="btn btn-primary nav-cta"
+                    target="_blank"
+                    rel="noopener"
+                    >Donate &amp; Tickets</a
+                >
+
+                <button class="hamburger" id="hamburger" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
+
+            <div class="mobile-menu" id="mobile-menu">
+                <ul>
+                    <li><a href="index.html#event">Event</a></li>
+                    <li><a href="index.html#ways-to-help">Ways to Help</a></li>
+                    <li><a href="index.html#mission">Donate</a></li>
+                    <li><a href="index.html#volunteer">Volunteer</a></li>
+                </ul>
+                <a
+                    href="https://givebutter.com/SBk8-spring2026"
+                    class="btn btn-primary"
+                    target="_blank"
+                    rel="noopener"
+                    >Donate &amp; Tickets</a
+                >
+            </div>
+        </header>
+
+        <main>
+            <!-- Navigation buttons at top -->
+            <div
+                style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 2rem;
+                    margin-top: 2rem;
+                    padding: 0 1rem;
+                "
+            >
+                <a
+                    href="index.html#volunteer"
+                    class="btn btn-outline"
+                    style="font-size: 0.85rem"
+                    >← Back to Volunteer</a
+                >
+            </div>
+
+            <!-- Volunteer Sign Up Form -->
+            <section class="section" style="padding-top: 0">
+                <div class="container" style="max-width: 600px; margin: 0 auto">
+                    <p class="section-label">✦ Help Us Out</p>
+                    <h1
+                        class="section-title"
+                        style="font-size: 2.5rem; margin-bottom: 2rem"
+                    >
+                        Volunteer Sign Up
+                    </h1>
+                    <div class="divider" style="margin: 0 auto 2rem"></div>
+
+                    <div class="success-message" id="successMessage">
+                        ✓ Thank you! Your volunteer sign-up has been received.
+                        We'll be in touch soon!
+                    </div>
+
+                    <div class="error-message" id="errorMessage">
+                        Something went wrong. Please try again or contact us
+                        directly.
+                    </div>
+
+                    <form id="volunteerForm">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="role"
+                                >How would you like to help? *</label
+                            >
+                            <select id="role" name="role" required>
+                                <option value="">-- Select an option --</option>
+                                <option value="setup">
+                                    Setup & Decorations
+                                </option>
+                                <option value="checkin">
+                                    Check-in & Registration
+                                </option>
+                                <option value="auction">
+                                    Auction Management
+                                </option>
+                                <option value="teardown">
+                                    Teardown & Cleanup
+                                </option>
+                                <option value="other">Other / Flexible</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message"
+                                >Any additional notes or questions?</label
+                            >
+                            <textarea id="message" name="message"></textarea>
+                        </div>
+
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-primary">
+                                Sign Me Up ✦
+                            </button>
+                            <a
+                                href="index.html#volunteer"
+                                class="btn btn-outline"
+                                >Cancel</a
+                            >
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <div class="container footer-inner">
+                <p class="footer-star">✦ ✦ ✦</p>
+                <p
+                    style="
+                        font-family: &quot;Cormorant Garamond&quot;, serif;
+                        font-size: 1.15rem;
+                        color: var(--silver);
+                        font-style: italic;
+                        opacity: 0.8;
+                    "
+                >
+                    The Galactic Gala — Salmon Bay K–8 Spring Fundraiser
+                </p>
+
+                <div class="footer-social">
+                    <a
+                        href="https://www.instagram.com/sbk8auction/"
+                        class="footer-social-link"
+                        aria-label="Instagram"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <rect
+                                x="2"
+                                y="2"
+                                width="20"
+                                height="20"
+                                rx="5"
+                                ry="5"
+                            />
+                            <path
+                                d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                            />
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                        </svg>
+                        <span>Instagram</span>
+                    </a>
+                    <a
+                        href="https://www.facebook.com/FriendsofSalmonBay/"
+                        class="footer-social-link"
+                        aria-label="Facebook"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path
+                                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                            />
+                        </svg>
+                        <span>Facebook</span>
+                    </a>
+                    <a
+                        href="https://www.friendsofsalmonbay.org/"
+                        class="footer-social-link"
+                        aria-label="Website"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="2" y1="12" x2="22" y2="12" />
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                            />
+                        </svg>
+                        <span>Website</span>
+                    </a>
+                </div>
+
+                <p>© 2025 Friends of Salmon Bay. All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="share.html">Share &amp; Donate</a></li>
+                    <li><a href="privacy.html">Privacy Statement</a></li>
+                    <li>
+                        <a
+                            href="/cdn-cgi/l/email-protection#d7b6a2b4a3beb8b997a4b6bbbab8b9b5b6aef9b8a5b0"
+                            >Contact Us</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </footer>
+
+        <script
+            data-cfasync="false"
+            src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+        ></script>
+        <script src="main.js"></script>
+
+        <script>
+            // Initialize EmailJS
+            // TODO: Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+            emailjs.init("ijFdY5Ha9p_omhH1J");
+
+            // Handle form submission
+            document
+                .getElementById("volunteerForm")
+                .addEventListener("submit", function (event) {
+                    event.preventDefault();
+
+                    // TODO: Replace 'YOUR_SERVICE_ID' with your EmailJS service ID
+                    // TODO: Replace 'YOUR_TEMPLATE_ID' with your EmailJS template ID
+                    emailjs
+                        .sendForm("service_zl7w5hd", "template_2f1xi8x", this)
+                        .then(function () {
+                            // Show success message
+                            document
+                                .getElementById("successMessage")
+                                .classList.add("show");
+                            document
+                                .getElementById("errorMessage")
+                                .classList.remove("show");
+
+                            // Reset form
+                            document.getElementById("volunteerForm").reset();
+
+                            // Scroll to top to show message
+                            window.scrollTo(0, 0);
+                        })
+                        .catch(function (error) {
+                            console.error("Error:", error);
+                            // Show error message
+                            document
+                                .getElementById("errorMessage")
+                                .classList.add("show");
+                            document
+                                .getElementById("successMessage")
+                                .classList.remove("show");
+                        });
+                });
+        </script>
+    </body>
+</html>
