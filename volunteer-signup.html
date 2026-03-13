@@ -389,26 +389,43 @@
         <script src="main.js"></script>
 
         <script>
+            var emailjsRetries = 0;
+            var maxRetries = 50; // ~5 seconds of retries
+
             // Wait for EmailJS to load, then initialize
             function initEmailJS() {
+                console.log("initEmailJS called, attempt", emailjsRetries);
+
                 if (typeof emailjs === "undefined") {
+                    emailjsRetries++;
+                    if (emailjsRetries > maxRetries) {
+                        console.error("EmailJS failed to load after multiple attempts");
+                        return;
+                    }
                     // EmailJS not loaded yet, retry in 100ms
                     setTimeout(initEmailJS, 100);
                     return;
                 }
 
+                console.log("EmailJS library found, initializing...");
+
                 // Initialize EmailJS
                 emailjs.init("ijFdY5Ha9p_omhH1J");
+                console.log("EmailJS initialized");
 
                 // Handle form submission
                 var form = document.getElementById("volunteerForm");
                 if (form) {
+                    console.log("Form found, attaching submit handler");
                     form.addEventListener("submit", function (event) {
+                        console.log("Form submitted");
                         event.preventDefault();
 
+                        console.log("Sending form via EmailJS...");
                         emailjs
                             .sendForm("service_zl7w5hd", "template_2f1xi8x", this)
                             .then(function () {
+                                console.log("Form sent successfully");
                                 // Show success message
                                 document
                                     .getElementById("successMessage")
@@ -424,7 +441,7 @@
                                 window.scrollTo(0, 0);
                             })
                             .catch(function (error) {
-                                console.error("Error:", error);
+                                console.error("EmailJS Error:", error);
                                 // Show error message
                                 document
                                     .getElementById("errorMessage")
@@ -434,6 +451,8 @@
                                     .classList.remove("show");
                             });
                     });
+                } else {
+                    console.error("Form not found");
                 }
             }
 
