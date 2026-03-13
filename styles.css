@@ -647,11 +647,44 @@ givebutter-widget {
     animation: none;
   }
 
-  /* Mobile mission section - remove graph paper */
+  /* Mobile mission section - remove graph paper and match other sections */
+  .mission-inner {
+    text-align: left !important;
+    align-items: flex-start !important;
+    margin: 0 !important;
+    padding: 0 2rem !important;
+  }
+
+  .mission-inner > .section-label {
+    text-align: left !important;
+    color: var(--gold) !important;
+  }
+
+  .mission-inner > p {
+    text-align: left !important;
+    color: var(--gold) !important;
+  }
+
   .mission-inner > div {
     padding: 0 !important;
     border-radius: 0 !important;
     background-color: transparent !important;
     background-image: none !important;
+    text-align: left !important;
+  }
+
+  .mission-inner > div p {
+    color: var(--mid) !important;
+  }
+
+  .mission-inner > div h2 {
+    color: var(--white) !important;
+    text-align: left !important;
+  }
+
+  .mission-inner > div .divider {
+    display: block !important;
+    margin: 1.5rem 0 !important;
+    margin-left: 0 !important;
   }
 }
