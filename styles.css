@@ -625,4 +625,33 @@ givebutter-widget {
   .section { padding: 3.5rem 0; }
   .hero { padding: 4rem 0 3.5rem; }
   .hero h1 { font-size: clamp(2rem, 10vw, 3rem); }
+
+  /* Mobile ticker fix */
+  .ticker-wrap {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    mask-image: none;
+  }
+  .ticker-wrap::-webkit-scrollbar {
+    height: 4px;
+  }
+  .ticker-wrap::-webkit-scrollbar-track {
+    background: rgba(232,200,122,0.1);
+  }
+  .ticker-wrap::-webkit-scrollbar-thumb {
+    background: rgba(232,200,122,0.3);
+    border-radius: 2px;
+  }
+  .ticker-track {
+    animation: none;
+  }
+
+  /* Mobile mission section - remove graph paper */
+  .mission-inner > div {
+    padding: 0 !important;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+    background-image: none !important;
+  }
 }
