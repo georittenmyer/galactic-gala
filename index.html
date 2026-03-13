@@ -2,13 +2,18 @@
 <html lang="en">
     <head>
         <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4J2NBF3TX0"></script>
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-4J2NBF3TX0"
+        ></script>
         <script>
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
 
-            gtag('config', 'G-4J2NBF3TX0');
+            gtag("config", "G-4J2NBF3TX0");
         </script>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -286,6 +291,19 @@
             </section>
 
             <!-- =============================================
+            DONOR SPONSOR TICKER
+            Donors are loaded from donors.txt (one name per line)
+       ============================================= -->
+            <div class="ticker-section">
+                <p class="ticker-label">✦ Thank You to Last Years Donors ✦</p>
+                <div class="ticker-wrap">
+                    <div class="ticker-track" id="ticker-track">
+                        <!-- Populated by JavaScript from donors.txt -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- =============================================
      WAYS TO HELP
      UPDATE: each card title, description, button & link
 ============================================= -->
@@ -358,40 +376,106 @@
             </section>
 
             <!-- =============================================
-     DONOR SPONSOR TICKER
-     Donors are loaded from donors.txt (one name per line)
-============================================= -->
-            <div class="ticker-section">
-                <p class="ticker-label">✦ Thank You to Last Years Donors ✦</p>
-                <div class="ticker-wrap">
-                    <div class="ticker-track" id="ticker-track">
-                        <!-- Populated by JavaScript from donors.txt -->
-                    </div>
-                </div>
-            </div>
 
-            <!-- =============================================
      MISSION
 ============================================= -->
             <section class="mission-section" id="mission">
-                <div class="mission-inner" style="max-width: 900px;">
+                <div class="mission-inner" style="max-width: 900px">
                     <p class="section-label">✦ Spring Fundraiser Mission</p>
-                    <h2 class="section-title">
-                        We Need Your Help
-                    </h2>
-                    <div class="divider" style="margin: 0 auto"></div>
-                    <p>
-                        Friends of Salmon Bay (FOSB) is dedicated to supporting, serving, and enhancing the learning environment of Salmon Bay K–8. All our fundraising efforts are directed towards meeting the diverse needs of our students. Together, we can reach our fundraising goal and support our community.
-                    </p>
-                    <p>
-                        Join us for our community celebration, participate in our online auction, attend a buy-in party, or make a direct impact through Direct Giving. Every donation, purchase, or ticket contributes directly to supporting our school.
-                    </p>
-                    <p>
-                        More than ever, we need your support. Next school year, our budget increases to accommodate a larger School Grant, filling the gap left by district funding. This grant will support key faculty, provide more electives, extend nurse and reading specialist availability, and more.
-                    </p>
-                    <p>
-                        With an increase in enrollment, we want to ensure that every child has access to the unique and enriching programs offered by our school like grade-level camps and the Spring Enrichment Program. Our budget includes scholarships, funds for events, and grants to support teachers. We'll continue supporting traditions like the Lantern festival and Pi Night. As the district funding gap grows, we appreciate each donation and promise to maintain our commitment to our school and community. Together, we are Salmon Bay.
-                    </p>
+                    <div
+                        style="
+                            padding: 2.5rem;
+                            border-radius: 8px;
+                            background-color: rgba(230, 240, 255, 0.7);
+                            background-image:
+                                linear-gradient(
+                                    rgba(0, 0, 0, 0.09) 1px,
+                                    transparent 1px
+                                ),
+                                linear-gradient(
+                                    90deg,
+                                    rgba(0, 0, 0, 0.09) 1px,
+                                    transparent 1px
+                                );
+                            background-size: 20px 20px;
+                        "
+                    >
+                        <h2 class="section-title" style="color: #1a4d7a">
+                            We Need Your Help
+                        </h2>
+                        <div
+                            class="divider"
+                            style="margin: 0 auto; display: none"
+                        ></div>
+                        <p
+                            style="
+                                font-size: 1.15rem;
+                                line-height: 1.9;
+                                margin-bottom: 1.5rem;
+                                color: #000;
+                                text-align: left;
+                            "
+                        >
+                            <b>Friends of Salmon Bay (FOSB)</b> is dedicated to
+                            supporting, serving, and enhancing the learning
+                            environment of Salmon Bay K–8. All our fundraising
+                            efforts are directed towards meeting the diverse
+                            needs of our students. Together, we can reach our
+                            fundraising goal and support our community.
+                        </p>
+                        <p
+                            style="
+                                font-size: 1.15rem;
+                                line-height: 1.9;
+                                margin-bottom: 1.5rem;
+                                color: #000;
+                                text-align: left;
+                            "
+                        >
+                            Join us for our community celebration, participate
+                            in our online auction, attend a buy-in party, or
+                            make a direct impact through Direct Giving. Every
+                            donation, purchase, or ticket contributes directly
+                            to supporting our school.
+                        </p>
+                        <p
+                            style="
+                                font-size: 1.15rem;
+                                line-height: 1.9;
+                                margin-bottom: 1.5rem;
+                                color: #000;
+                                text-align: left;
+                            "
+                        >
+                            More than ever, we need your support. Next school
+                            year, our budget increases to accommodate a larger
+                            School Grant, filling the gap left by district
+                            funding. This grant will support key faculty,
+                            provide more electives, extend nurse and reading
+                            specialist availability, and more.
+                        </p>
+                        <p
+                            style="
+                                font-size: 1.15rem;
+                                line-height: 1.9;
+                                margin-bottom: 1.5rem;
+                                color: #000;
+                                text-align: left;
+                            "
+                        >
+                            With an increase in enrollment, we want to ensure
+                            that every child has access to the unique and
+                            enriching programs offered by our school like
+                            grade-level camps and the Spring Enrichment Program.
+                            Our budget includes scholarships, funds for events,
+                            and grants to support teachers. We'll continue
+                            supporting traditions like the Lantern festival and
+                            Pi Night. As the district funding gap grows, we
+                            appreciate each donation and promise to maintain our
+                            commitment to our school and community. Together, we
+                            are Salmon Bay.
+                        </p>
+                    </div>
                     <div
                         style="
                             display: flex;
@@ -404,19 +488,13 @@
                         <a
                             href="fundraiser-breakdown.html"
                             class="btn btn-outline"
-                            style="
-                                flex: 0 1 auto;
-                                text-align: center;
-                            "
+                            style="flex: 0 1 auto; text-align: center"
                             >2025 Spring Fundraiser Results</a
                         >
                         <a
                             href="https://givebutter.com/SBk8-spring2026"
                             class="btn btn-primary"
-                            style="
-                                flex: 0 1 auto;
-                                text-align: center;
-                            "
+                            style="flex: 0 1 auto; text-align: center"
                             target="_blank"
                             rel="noopener"
                             >Donate</a
@@ -457,7 +535,8 @@
                         <div class="signup-card">
                             <h3>🍻 Fuel the Faculty</h3>
                             <p>
-                                Help us launch our teachers into a stellar night with food and drink tokens on the house!
+                                Help us launch our teachers into a stellar night
+                                with food and drink tokens on the house!
                             </p>
                             <!-- ===== UPDATE: link to donation page ===== -->
                             <a
