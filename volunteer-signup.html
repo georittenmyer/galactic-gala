@@ -389,8 +389,14 @@
         <script src="main.js"></script>
 
         <script>
-            // Wait for page to load before initializing
-            document.addEventListener("DOMContentLoaded", function () {
+            // Wait for EmailJS to load, then initialize
+            function initEmailJS() {
+                if (typeof emailjs === "undefined") {
+                    // EmailJS not loaded yet, retry in 100ms
+                    setTimeout(initEmailJS, 100);
+                    return;
+                }
+
                 // Initialize EmailJS
                 emailjs.init("ijFdY5Ha9p_omhH1J");
 
@@ -429,7 +435,10 @@
                             });
                     });
                 }
-            });
+            }
+
+            // Start initialization when DOM is ready
+            document.addEventListener("DOMContentLoaded", initEmailJS);
         </script>
     </body>
 </html>
