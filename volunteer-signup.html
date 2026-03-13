@@ -389,46 +389,47 @@
         <script src="main.js"></script>
 
         <script>
-            // Initialize EmailJS
-            // TODO: Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
-            emailjs.init("ijFdY5Ha9p_omhH1J");
+            // Wait for page to load before initializing
+            document.addEventListener("DOMContentLoaded", function () {
+                // Initialize EmailJS
+                emailjs.init("ijFdY5Ha9p_omhH1J");
 
-            // Handle form submission
-            document
-                .getElementById("volunteerForm")
-                .addEventListener("submit", function (event) {
-                    event.preventDefault();
+                // Handle form submission
+                var form = document.getElementById("volunteerForm");
+                if (form) {
+                    form.addEventListener("submit", function (event) {
+                        event.preventDefault();
 
-                    // TODO: Replace 'YOUR_SERVICE_ID' with your EmailJS service ID
-                    // TODO: Replace 'YOUR_TEMPLATE_ID' with your EmailJS template ID
-                    emailjs
-                        .sendForm("service_zl7w5hd", "template_2f1xi8x", this)
-                        .then(function () {
-                            // Show success message
-                            document
-                                .getElementById("successMessage")
-                                .classList.add("show");
-                            document
-                                .getElementById("errorMessage")
-                                .classList.remove("show");
+                        emailjs
+                            .sendForm("service_zl7w5hd", "template_2f1xi8x", this)
+                            .then(function () {
+                                // Show success message
+                                document
+                                    .getElementById("successMessage")
+                                    .classList.add("show");
+                                document
+                                    .getElementById("errorMessage")
+                                    .classList.remove("show");
 
-                            // Reset form
-                            document.getElementById("volunteerForm").reset();
+                                // Reset form
+                                document.getElementById("volunteerForm").reset();
 
-                            // Scroll to top to show message
-                            window.scrollTo(0, 0);
-                        })
-                        .catch(function (error) {
-                            console.error("Error:", error);
-                            // Show error message
-                            document
-                                .getElementById("errorMessage")
-                                .classList.add("show");
-                            document
-                                .getElementById("successMessage")
-                                .classList.remove("show");
-                        });
-                });
+                                // Scroll to top to show message
+                                window.scrollTo(0, 0);
+                            })
+                            .catch(function (error) {
+                                console.error("Error:", error);
+                                // Show error message
+                                document
+                                    .getElementById("errorMessage")
+                                    .classList.add("show");
+                                document
+                                    .getElementById("successMessage")
+                                    .classList.remove("show");
+                            });
+                    });
+                }
+            });
         </script>
     </body>
 </html>
