@@ -394,8 +394,6 @@
 
             // Wait for EmailJS to load, then initialize
             function initEmailJS() {
-                console.log("initEmailJS called, attempt", emailjsRetries);
-
                 if (typeof emailjs === "undefined") {
                     emailjsRetries++;
                     if (emailjsRetries > maxRetries) {
@@ -407,25 +405,18 @@
                     return;
                 }
 
-                console.log("EmailJS library found, initializing...");
-
                 // Initialize EmailJS
                 emailjs.init("ijFdY5Ha9p_omhH1J");
-                console.log("EmailJS initialized");
 
                 // Handle form submission
                 var form = document.getElementById("volunteerForm");
                 if (form) {
-                    console.log("Form found, attaching submit handler");
                     form.addEventListener("submit", function (event) {
-                        console.log("Form submitted");
                         event.preventDefault();
 
-                        console.log("Sending form via EmailJS...");
                         emailjs
                             .sendForm("service_zl7w5hd", "template_2f1xi8x", this)
                             .then(function () {
-                                console.log("Form sent successfully");
                                 // Show success message
                                 document
                                     .getElementById("successMessage")
