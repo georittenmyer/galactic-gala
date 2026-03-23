@@ -17,7 +17,7 @@
         </script>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>FOSB Budget Allocation 2025-2026 & 2024-2025</title>
+        <title>FOSB Budget Allocation 2025-2026</title>
         <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
         <link rel="stylesheet" href="https://use.typekit.net/zpl5vsa.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -291,7 +291,7 @@
                         </div>
                     </div>
 
-                    <!-- 2024-2025 Updated Budget -->
+                    <!-- 2024-2025 Final Spending -->
                     <h3
                         style="
                             color: var(--gold);
@@ -318,13 +318,19 @@
                             ></div>
 
                             <div class="summary">Total Spending: $235,729</div>
+                        </div>
+
+                        <!-- Key/Explanation Section -->
+                        <div class="key-wrapper">
+                            <div class="key-title">Budget Categories</div>
+                            <div id="categoryKey2025"></div>
                             <p
                                 style="
-                                    margin-top: 1rem;
-                                    font-size: 0.9rem;
+                                    margin-top: 1.5rem;
+                                    font-size: 0.85rem;
                                     color: var(--mid);
-                                    text-align: center;
                                     font-style: italic;
+                                    line-height: 1.5;
                                 "
                             >
                                 *Our 2024-2025 budget was influenced by external
@@ -332,12 +338,23 @@
                                 concerns over school closures, and enrollment
                                 trends.
                             </p>
-                        </div>
-
-                        <!-- Key/Explanation Section -->
-                        <div class="key-wrapper">
-                            <div class="key-title">Budget Categories</div>
-                            <div id="categoryKey2025"></div>
+                            <p
+                                style="
+                                    margin-top: 0.75rem;
+                                    font-size: 0.85rem;
+                                    color: var(--mid);
+                                    line-height: 1.5;
+                                "
+                            >
+                                More detailed budget information is available at
+                                <a
+                                    href="https://friendsofsalmonbay.org"
+                                    target="_blank"
+                                    rel="noopener"
+                                    style="color: var(--gold); text-decoration: none;"
+                                    >friendsofsalmonbay.org</a
+                                >.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -368,67 +385,34 @@
         </footer>
 
         <script>
-            // Color palettes
+            // Color palette
             const colors2026 = [
-                "#e8c87a", // Gold - School Grant-Staff
-                "#78a8e8", // Blue - Scholarships & Equity
-                "#e87898", // Rose - Emerging Needs Fund
-                "#e89878", // Orange - Additional School Support
-                "#78e8c8", // Teal - Committee Support
-                "#b878e8", // Purple - FOSB Administration
+                "#e8c87a", // Gold - School Grant
+                "#78a8e8", // Blue - Student Scholarships
+                "#e89878", // Orange - School Classrooms and Programs
+                "#e87898", // Rose - Emerging Needs
+                "#78e8c8", // Teal - FOSB Committees
+                "#b878e8", // Purple - FOSB Operations
             ];
 
-            const colors2025 = [
-                "#e8c87a", // Gold - School Grant - Staff
-                "#e89878", // Orange - Additional School Support
-                "#78a8e8", // Blue - Scholarships & Equity
-                "#f0d080", // Yellow - School Mini Grants
-                "#78e8c8", // Teal - Volunteer Coordinator Support
-                "#b878e8", // Purple - FOSB Operational Costs
-                "#e87898", // Rose - Committee Support
-            ];
-
-            // 2025-2026 Proposed budget data
+            // 2025-2026 Working budget data
             const budgetData2026 = {
                 labels: [
-                    "School Grant - Staff",
-                    "Scholarships",
-                    "School Emerging Needs",
-                    "Additional School Support",
-                    "Committee Support",
-                    "FOSB Operational Costs",
+                    "School Grant",
+                    "Student Scholarships",
+                    "School Classrooms and Programs",
+                    "Emerging Needs",
+                    "FOSB Committees",
+                    "FOSB Operations",
                 ],
-                values: [147000, 56000, 33075, 31450, 19150, 8270],
+                values: [147000, 56000, 31450, 33075, 19150, 8270],
                 descriptions: [
-                    "Funding to fill the gap left by the district to support essential staff and faculty for the school year extending nurse and reading specialist availability, increasing days for administrative secretary to accommodate scheduling, kindergarten readiness days and more.",
-                    "Provides FOSB scholarships for K-8 camps, Fall Connections, After School Programs, SEP, and other enrichment activities. Scholarships support student access to programs.",
-                    "Funds available to support needs as they arise through the year including Kiln repair, new committee initiatives, Seminars for students, and more!",
-                    "Supports yearly activities and supplies like graduations, , Lantern Festival, Yearbooks, and Supplies for exploratory studies,WEB, and SEP.",
-                    "Supports school community engagement including grade level events (BCI), Pi Night, staff appreciation, traffic safety, sustainability initiatives, fundraising expenses, advocacy participation, and PIE Speakers (Parent Information Exchange).",
-                    "Covers FOSB administrative operations including liability insurance, bookkeeper fees, communications, QuickBooks license, state/city filings, and supplies.",
-                ],
-            };
-
-            // 2024-2025 Final spending data (as of 6/30/25)
-            const budgetData2025 = {
-                labels: [
-                    "School Grant - Staff",
-                    "Additional School Support",
-                    "Scholarships & Equity",
-                    "School Mini Grants",
-                    "Volunteer Coordinator Support",
-                    "FOSB Operational Costs",
-                    "Committee Support",
-                ],
-                values: [92167, 58912, 36622, 9256, 6063, 10617, 8417],
-                descriptions: [
-                    "Funding to fill the gap left by the district to support essential staff and faculty for the school year extending nurse and reading specialist availability, increasing days for administrative secretary to accommodate scheduling, kindergarten readiness days and more.",
-                    "Supports school programs and activities including drama supplies, kindergarten programs, lantern festival, yearbooks, library renovation fund, middle school supplies, sports support, and WEB program supplies.",
-                    "FOSB scholarships for K-8 camps, Fall Connections, After School Programs, SEP, and other enrichment activities that support student access to programs.",
-                    "Mini Grants for teachers, classroom libraries, Science supplies, classroom chairs, etc. Allocation of funds from emerging needs grants.",
-                    "Volunteer coordinator support including staff appreciations, school snacks, new student welcome, community connection events, and event supplies.",
-                    "Covers FOSB administrative operations including liability insurance, bookkeeper fees, communications, meeting expenses, state/city filings and supplies. A large portion is fundraising credit card fees.",
-                    "Supports school community engagement including grade level events (BCI), Pi Night, staff appreciation, traffic safety, sustainability initiatives, fundraising expenses, advocacy participation, and PIE Speakers (Parent Information Exchange).",
+                    "Retain staff for essential school classes, programs, and services, such as the School Nurse, Kindergarten Readiness Team, Elementary Reading Specialist, Middle School Drama, English Language Arts and Elective Teachers, Middle School Counselor, and Extracurricular Staff.",
+                    "Provide scholarships so students can participate in all aspects of school, regardless of cost, such as Overnight Camps, Spring Enrichment Program (SEP), Field Trips, After-School Programs, and Back-to-School Supplies.",
+                    "Fund supplemental supplies for school classrooms and programs, such as Physical Education (PE) & Athletics, Middle School Exploratory Studies and Theater, Spring Enrichment Program (SEP), Where Everybody Belongs (WEB), Field Day, Graduations, and Yearbooks.",
+                    "Supports staff and school community needs as they arise throughout the year. Past expenses have included classroom emergency preparedness kits, stage sound system upgrades, piano tuning, kiln repair, refrigerator replacement, staff professional development, and new program initiatives.",
+                    "Fund volunteer-led initiatives that connect our school and greater community together, such as All-School Events (Pizza on the Playground, Evening Lantern Festival, Pi(e) Night, Multicultural Night), Building Community Initiative (BCI) Grade-Level Events, Parent Information Exchange (PIE), Staff Appreciation, Sustainability, Traffic Safety.",
+                    "Pay for expenses associated with operating a nonprofit, such as liability insurance, bookkeeper fees, QuickBooks license, state/city filings, communications, and supplies.",
                 ],
             };
 
@@ -524,6 +508,29 @@
 
             document.getElementById("categoryKey2026").innerHTML = keyHTML2026;
 
+            // Color palette (same mapping as 2025-2026)
+            const colors2025 = [
+                "#e8c87a", // Gold - School Grant
+                "#78a8e8", // Blue - Student Scholarships
+                "#e89878", // Orange - School Classrooms and Programs
+                "#e87898", // Rose - Emerging Needs
+                "#78e8c8", // Teal - FOSB Committees
+                "#b878e8", // Purple - FOSB Operations
+            ];
+
+            // 2024-2025 Final spending data (as of 6/30/25)
+            const budgetData2025 = {
+                labels: [
+                    "School Grant",
+                    "Student Scholarships",
+                    "School Classrooms and Programs",
+                    "Emerging Needs",
+                    "FOSB Committees",
+                    "FOSB Operations",
+                ],
+                values: [92167, 36622, 40121, 42256, 13946, 10617],
+            };
+
             // Create 2024-2025 chart
             const ctx2025 = document
                 .getElementById("budgetChart2025")
@@ -597,7 +604,7 @@
             document.getElementById("budgetLegend2025").innerHTML =
                 legendHTML2025;
 
-            // Create 2024-2025 category key
+            // Create 2024-2025 category key (no descriptions)
             const keyHTML2025 = budgetData2025.labels
                 .map((label, index) => {
                     const value = budgetData2025.values[index];
@@ -608,13 +615,13 @@
                             <span class="category-name">${label}</span>
                             <span class="category-amount">$${value.toLocaleString("en-US")}</span>
                         </div>
-                        <div class="category-description">${budgetData2025.descriptions[index]}</div>
                     </div>
                 `;
                 })
                 .join("");
 
             document.getElementById("categoryKey2025").innerHTML = keyHTML2025;
+
         </script>
 
         <script src="main.js"></script>
