@@ -197,6 +197,38 @@
                     </h1>
                     <div class="divider" style="margin: 0 auto 2rem"></div>
 
+                    <div
+                        style="
+                            margin-bottom: 2rem;
+                            color: var(--silver);
+                            font-size: 1rem;
+                            line-height: 1.8;
+                        "
+                    >
+                        <p style="margin-bottom: 1rem">
+                            Buy-in parties are fun, community-hosted mini events
+                            that raise money for Salmon Bay. You can host
+                            something simple like a game night at your house or
+                            offer something unique like a pastry baking class
+                            for a small group. Hosts donate the experience, so
+                            every ticket sold goes directly to supporting FOSB
+                            and our school.
+                        </p>
+                        <p>
+                            Ready to create something fun and meaningful? Fill
+                            out the form below or reach out with any questions
+                            at
+                            <a
+                                href="mailto:FOSBparties@gmail.com"
+                                style="
+                                    color: var(--gold);
+                                    text-decoration: none;
+                                "
+                                >FOSBparties@gmail.com</a
+                            >.
+                        </p>
+                    </div>
+
                     <div class="success-message" id="successMessage">
                         ✓ Thanks so much! We'll be in contact soon to finalize
                         the details of your party.
@@ -207,7 +239,11 @@
                         directly.
                     </div>
 
-                    <form id="partyForm" method="POST" action="javascript:void(0);">
+                    <form
+                        id="partyForm"
+                        method="POST"
+                        action="javascript:void(0);"
+                    >
                         <div class="form-group">
                             <label for="name">Name *</label>
                             <input type="text" id="name" name="name" required />
@@ -399,7 +435,9 @@
                 if (typeof emailjs === "undefined") {
                     emailjsRetries++;
                     if (emailjsRetries > maxRetries) {
-                        console.error("EmailJS failed to load after multiple attempts");
+                        console.error(
+                            "EmailJS failed to load after multiple attempts",
+                        );
                         return;
                     }
                     setTimeout(initEmailJS, 100);
@@ -416,7 +454,11 @@
                         event.preventDefault();
 
                         emailjs
-                            .sendForm("service_zl7w5hd", "template_hwdg7jp", this)
+                            .sendForm(
+                                "service_zl7w5hd",
+                                "template_hwdg7jp",
+                                this,
+                            )
                             .then(function () {
                                 document
                                     .getElementById("successMessage")
