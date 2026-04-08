@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 Auction Items - Winning Bids</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8f9fa;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #222;
+        }
+
+        .category-section {
+            margin-bottom: 50px;
+        }
+
+        .category-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #007bff;
+            color: #222;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .item-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .item-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #222;
+            line-height: 1.3;
+        }
+
+        .item-description {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            min-height: 24px;
+        }
+
+        .item-prices {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+            font-size: 13px;
+        }
+
+        .price-group {
+            flex: 1;
+        }
+
+        .price-label {
+            color: #999;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .price-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #007bff;
+        }
+
+        .item-bids {
+            font-size: 12px;
+            color: #666;
+            margin-top: auto;
+            padding-top: 8px;
+            border-top: 1px solid #eee;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
+        .category-count {
+            font-size: 14px;
+            color: #999;
+            margin-left: 10px;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>2025 Auction Items - Winning Bids</h1>
+        <div id="content" class="no-data">Loading auction items...</div>
+    </div>
+
+    <script>
+        // Category mapping based on item names
+        const getCategoryFromName = (itemName) => {
+            const name = itemName.toLowerCase();
+
+            if (name.includes('buy-in') || name.includes('buyin')) return 'Buy-In Parties';
+            if (name.includes('classroom') || name.includes('marketplace')) return 'Educational';
+            if (name.includes('pickleball') || name.includes('paddling') || name.includes('sports')) return 'Sports & Recreation';
+            if (name.includes('dance') || name.includes('karaoke') || name.includes('night') && !name.includes('bunco')) return 'Music & Entertainment';
+            if (name.includes('escape') || name.includes('fox')) return 'Experience & Activities';
+            if (name.includes('wine') || name.includes('watercolor') || name.includes('painting')) return 'Arts & Crafts';
+            if (name.includes('craft') || name.includes('embroider') || name.includes('happy hour')) return 'Arts & Crafts';
+            if (name.includes('bunco') || name.includes('pokemon') || name.includes('game')) return 'Games & Entertainment';
+            if (name.includes('compost') || name.includes('garden') || name.includes('outdoor')) return 'Garden & Outdoor';
+            if (name.includes('zen') || name.includes('yoga') || name.includes('wellness')) return 'Wellness & Relaxation';
+            if (name.includes('zest')) return 'Wellness & Relaxation';
+
+            return 'Other';
+        };
+
+        // Parse CSV text
+        function parseCSV(csvText) {
+            const lines = csvText.trim().split('\n');
+            const headers = lines[0].split('","').map(h => h.replace(/^"|"$/g, ''));
+
+            const items = {};
+
+            for (let i = 1; i < lines.length; i++) {
+                if (!lines[i].trim()) continue;
+
+                // CSV parsing - handle quoted fields
+                const row = [];
+                let current = '';
+                let inQuotes = false;
+
+                for (let j = 0; j < lines[i].length; j++) {
+                    const char = lines[i][j];
+                    const nextChar = lines[i][j + 1];
+
+                    if (char === '"') {
+                        if (inQuotes && nextChar === '"') {
+                            current += '"';
+                            j++;
+                        } else {
+                            inQuotes = !inQuotes;
+                        }
+                    } else if (char === ',' && !inQuotes) {
+                        row.push(current.trim());
+                        current = '';
+                    } else {
+                        current += char;
+                    }
+                }
+                row.push(current.trim());
+
+                if (row.length < 5) continue;
+
+                const itemId = row[0];
+                const itemName = row[1];
+                const retailPrice = row[3];
+                const soldPrice = row[4];
+
+                if (!itemName) continue;
+
+                const category = getCategoryFromName(itemName);
+                const itemKey = `${itemId}-${itemName}`;
+
+                if (!items[itemKey]) {
+                    items[itemKey] = {
+                        id: itemId,
+                        name: itemName,
+                        category: category,
+                        retailPrice: retailPrice,
+                        soldPrice: soldPrice,
+                        bidCount: 0
+                    };
+                }
+                items[itemKey].bidCount++;
+            }
+
+            return items;
+        }
+
+        // Render HTML
+        function renderAuction(items) {
+            // Group by category, but reassign buy-in parties based on bid count
+            const categories = {};
+            Object.values(items).forEach(item => {
+                let category = item.bidCount > 1 ? 'Buy-In Parties' : item.category;
+                if (!categories[category]) {
+                    categories[category] = [];
+                }
+                categories[category].push(item);
+            });
+
+            // Calculate totals for each category
+            const categoryTotals = {};
+            Object.keys(categories).forEach(category => {
+                const total = categories[category].reduce((sum, item) => {
+                    const price = parseFloat(item.soldPrice.replace('$', '')) || 0;
+                    return sum + (price * item.bidCount);
+                }, 0);
+                categoryTotals[category] = total;
+            });
+
+            // Sort categories: non-buy-in by total (descending), then buy-in parties last
+            const sortedCategories = Object.keys(categories).sort((a, b) => {
+                if (a === 'Buy-In Parties') return 1;
+                if (b === 'Buy-In Parties') return -1;
+                return categoryTotals[b] - categoryTotals[a];
+            });
+            let html = '';
+
+            sortedCategories.forEach(category => {
+                let categoryItems = categories[category];
+
+                // For Buy-In Parties, sort by name; for others, sort by sold price (highest first)
+                if (category === 'Buy-In Parties') {
+                    categoryItems = categoryItems.sort((a, b) => a.name.localeCompare(b.name));
+                } else {
+                    categoryItems = categoryItems.sort((a, b) => {
+                        const priceA = parseFloat(a.soldPrice.replace('$', '')) || 0;
+                        const priceB = parseFloat(b.soldPrice.replace('$', '')) || 0;
+                        return priceB - priceA;
+                    });
+                }
+
+                html += `<div class="category-section">
+                    <h2 class="category-title">${category} <span class="category-count">(${categoryItems.length})</span></h2>
+                    <div class="grid">`;
+
+                categoryItems.forEach(item => {
+                    const retailDisplay = item.retailPrice && item.retailPrice !== 'N/A' ? item.retailPrice : '—';
+                    const soldDisplay = item.soldPrice || '—';
+
+                    html += `<div class="item-card">
+                        <div class="item-title">${item.name}</div>
+                        <div class="item-description"></div>
+                        <div class="item-prices">
+                            <div class="price-group">
+                                <div class="price-label">List</div>
+                                <div class="price-value">${retailDisplay}</div>
+                            </div>
+                            <div class="price-group">
+                                <div class="price-label">Sold</div>
+                                <div class="price-value">${soldDisplay}</div>
+                            </div>
+                        </div>
+                        <div class="item-bids">${item.bidCount} ${item.bidCount === 1 ? 'bid' : 'bids'}</div>
+                    </div>`;
+                });
+
+                html += `</div></div>`;
+            });
+
+            document.getElementById('content').innerHTML = html;
+        }
+
+        // Auto-load CSV on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('./winning-bids-2026-04-05-2022413112.csv')
+                .then(response => {
+                    if (!response.ok) throw new Error('CSV not found');
+                    return response.text();
+                })
+                .then(csvText => {
+                    const items = parseCSV(csvText);
+                    renderAuction(items);
+                })
+                .catch(error => {
+                    console.error('Error loading CSV:', error);
+                    // Try alternative path
+                    fetch('../data/winning-bids-2026-04-05-2022413112.csv')
+                        .then(response => response.text())
+                        .then(csvText => {
+                            const items = parseCSV(csvText);
+                            renderAuction(items);
+                        })
+                        .catch(err => {
+                            console.error('Fallback also failed:', err);
+                            document.getElementById('content').innerHTML =
+                                `<p style="color: #d32f2f;">Error loading auction items. Make sure the CSV file is in the Extras folder or data folder.</p>`;
+                        });
+                });
+        });
+    </script>
+</body>
+</html>
