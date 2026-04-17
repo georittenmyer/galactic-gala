@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-4J2NBF3TX0"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-4J2NBF3TX0");
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sponsors — SBK Spring Fundraiser</title>
+        <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+        <link rel="stylesheet" href="https://use.typekit.net/zpl5vsa.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="styles.css" />
+        <style>
+            .sponsors-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.5rem;
+                margin-top: 2rem;
+            }
+
+            .sponsor-card {
+                background: rgba(255, 255, 255, 0.04);
+                border: 1px solid rgba(232, 200, 122, 0.15);
+                border-top: 3px solid var(--gold);
+                border-radius: 10px;
+                padding: 2rem;
+                text-align: center;
+                text-decoration: none;
+                color: inherit;
+                transition: all 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                min-height: 120px;
+                animation: fadeInSlide 0.6s ease-out forwards;
+            }
+
+            .sponsor-card:hover {
+                border-color: var(--gold);
+                border-top: 3px solid var(--gold);
+                box-shadow: 0 0 20px rgba(232, 200, 122, 0.3);
+                transform: translateY(-3px);
+            }
+
+            .sponsor-name {
+                font-family: "Outfit", sans-serif;
+                font-size: 1.1rem;
+                font-weight: 300;
+                color: var(--silver);
+                margin: 0;
+                letter-spacing: 0.5px;
+            }
+
+            .sponsor-star {
+                display: none;
+            }
+
+            @keyframes fadeInSlide {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @media (max-width: 1024px) {
+                .sponsors-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+
+            @media (max-width: 768px) {
+                .sponsors-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 1rem;
+                }
+
+                .sponsor-card {
+                    padding: 1.5rem;
+                }
+
+                .sponsor-name {
+                    font-size: 1rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .sponsors-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            /* Shooting stars */
+            @keyframes shootingStar {
+                0% {
+                    transform: translateX(-100vw) translateY(-100vh);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateX(100vw) translateY(100vh);
+                    opacity: 0;
+                }
+            }
+
+            .shooting-star {
+                position: fixed;
+                width: 2px;
+                height: 2px;
+                background: var(--gold);
+                border-radius: 50%;
+                box-shadow: 0 0 10px var(--gold), 0 0 20px rgba(232, 200, 122, 0.6);
+                pointer-events: none;
+                z-index: 0;
+                animation: shootingStar 3s ease-in forwards;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Animated starfield background -->
+        <canvas id="starfield"></canvas>
+
+        <!-- HEADER NAVIGATION -->
+        <header class="site-header">
+            <nav class="nav container">
+                <a href="index.html" class="nav-logo">
+                    <span class="nav-logo-text">Salmon Bay K–8 ✦</span>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html#event">Event</a></li>
+                    <li><a href="index.html#ways-to-help">Ways to Help</a></li>
+                    <li><a href="index.html#mission">Donate</a></li>
+                    <li><a href="index.html#volunteer">Volunteer</a></li>
+                </ul>
+
+                <a
+                    href="https://givebutter.com/SBk8-spring2026"
+                    class="btn btn-primary nav-cta"
+                    target="_blank"
+                    rel="noopener"
+                    >Donate &amp; Tickets</a
+                >
+
+                <button class="hamburger" id="hamburger" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
+
+            <div class="mobile-menu" id="mobile-menu">
+                <ul>
+                    <li><a href="index.html#event">Event</a></li>
+                    <li><a href="index.html#ways-to-help">Ways to Help</a></li>
+                    <li><a href="index.html#mission">Donate</a></li>
+                    <li><a href="index.html#volunteer">Volunteer</a></li>
+                </ul>
+                <a
+                    href="https://givebutter.com/SBk8-spring2026"
+                    class="btn btn-primary"
+                    target="_blank"
+                    rel="noopener"
+                    >Donate &amp; Tickets</a
+                >
+            </div>
+        </header>
+
+        <main>
+            <!-- Sponsors Section -->
+            <section class="section">
+                <div class="container">
+                    <p class="section-label">✦ Thank You</p>
+                    <h1 class="section-title">Our Auction Sponsors</h1>
+                    <div class="divider" style="margin: 0 auto 2rem"></div>
+
+                    <div class="sponsors-grid">
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Elevated Natural Health</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">The Yoga Tree</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">OOLA Distillery</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Rough &amp; Tumble</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Nelson Orthodontics</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Michelle Quesada Architect</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Judith Bricker</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">The Center for Wooden Boats</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Other Coast Cafe</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">The Tractor Tavern</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Juliana Radloff, LMT</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Seattle Tempest</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Rosellini's</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">New Roots Organics</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Nectar Lounge &amp; Hidden Hall</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">The Pantry Seattle</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Beast &amp; Cleaver</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Little Beast</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Verical World</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Seattle Tall Ships</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Seattle Derby Brats</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Mainstay Provisions</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Mighty-O Donuts</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Ivar's</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Majestic Bay Theaters</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Wild Mountain Cafe</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Gage Academy of Art</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Sunset Tavern</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Spectrum Dance Theater</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">The Shambles</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Ayumi's Shop</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Cloudy Cafe</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Pacific Northwest Ballet</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Snow Leopard Trust</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Caitlin Spence at Lake &amp; Company Real Estate</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Ballard Acupuncture Center</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Firefly Tutoring Center</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Wool Friends</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">Wildwood Spirit Co</div>
+                        </a>
+                        <a href="#" class="sponsor-card">
+                            <div class="sponsor-star">✦</div>
+                            <div class="sponsor-name">John Howie Restaurants</div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <div class="container footer-inner">
+                <p class="footer-star">✦ ✦ ✦</p>
+                <p
+                    style="
+                        font-family: &quot;Cormorant Garamond&quot;, serif;
+                        font-size: 1.15rem;
+                        color: var(--silver);
+                        font-style: italic;
+                        opacity: 0.8;
+                    "
+                >
+                    The Galactic Gala — Salmon Bay K–8 Spring Fundraiser
+                </p>
+
+                <div class="footer-social">
+                    <a
+                        href="https://www.instagram.com/sbk8auction/"
+                        class="footer-social-link"
+                        aria-label="Instagram"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <rect
+                                x="2"
+                                y="2"
+                                width="20"
+                                height="20"
+                                rx="5"
+                                ry="5"
+                            />
+                            <path
+                                d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                            />
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                        </svg>
+                        <span>Instagram</span>
+                    </a>
+                    <a
+                        href="https://www.facebook.com/FriendsofSalmonBay/"
+                        class="footer-social-link"
+                        aria-label="Facebook"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path
+                                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                            />
+                        </svg>
+                        <span>Facebook</span>
+                    </a>
+                    <a
+                        href="https://www.friendsofsalmonbay.org/"
+                        class="footer-social-link"
+                        aria-label="Website"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="2" y1="12" x2="22" y2="12" />
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                            />
+                        </svg>
+                        <span>FOSB</span>
+                    </a>
+                </div>
+
+                <p>© 2025 Friends of Salmon Bay. All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="share.html">Share &amp; Donate</a></li>
+                    <li><a href="privacy.html">Privacy Statement</a></li>
+                    <li>
+                        <a
+                            href="/cdn-cgi/l/email-protection#d7b6a2b4a3beb8b997a4b6bbbab8b9b5b6aef9b8a5b0"
+                            >Contact Us</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </footer>
+
+        <script
+            data-cfasync="false"
+            src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+        ></script>
+        <script src="main.js"></script>
+
+        <script>
+            // Sponsor URLs mapping
+            const sponsorUrls = {
+                'Elevated Natural Health': 'https://www.elevatednaturalhealth.com',
+                'The Yoga Tree': 'https://yogatree.com',
+                'OOLA Distillery': 'https://ooladistillery.com',
+                'Rough & Tumble': 'https://roughandtumblepub.com',
+                'Nelson Orthodontics': 'https://www.nelsonsmiles.com',
+                'Michelle Quesada Architect': 'https://michelle-quesada.com',
+                'Judith Bricker': 'https://JudithTeachesMusic.com',
+                'The Center for Wooden Boats': 'https://cwb.org',
+                'Other Coast Cafe': 'https://www.othercoastcafe.com',
+                'The Tractor Tavern': 'https://tractortavern.com/',
+                'Juliana Radloff, LMT': 'https://radloff.massagetherapy.com',
+                'Seattle Tempest': 'https://seattle-ultimate.com',
+                'Rosellini\'s': 'https://Rosellinis.com',
+                'New Roots Organics': 'https://newrootsorganics.com',
+                'Nectar Lounge & Hidden Hall': 'https://hiddenhall.com',
+                'The Pantry Seattle': 'https://thepantryseattle.com/',
+                'Beast & Cleaver': 'https://beastandcleaver.com/',
+                'Little Beast': 'https://beastandcleaver.com/the-little-beast/',
+                'Verical World': 'https://verticalworld.com/',
+                'Seattle Tall Ships': 'https://seattlesailingship.com/',
+                'Seattle Derby Brats': 'https://seattlederbybrats.com',
+                'Mainstay Provisions': 'https://www.mainstayprovisions.com',
+                'Mighty-O Donuts': 'https://mightyo.com/',
+                'Ivar\'s': 'https://www.ivars.com/',
+                'Majestic Bay Theaters': 'https://www.majesticbay.com/',
+                'Wild Mountain Cafe': 'https://www.thewildmountaincafe.com/',
+                'Gage Academy of Art': 'https://gageacademy.org/',
+                'Sunset Tavern': 'https://www.sunsettavern.com',
+                'Spectrum Dance Theater': 'https://www.spectrumdance.org',
+                'The Shambles': 'https://www.theshamblesseattle.com',
+                'Ayumi\'s Shop': 'https://Ayumills.etsy.com',
+                'Cloudy Cafe': 'https://www.cloudycafeseattle.com',
+                'Pacific Northwest Ballet': 'https://pnb.org',
+                'Snow Leopard Trust': 'https://www.snowleopard.org',
+                'Caitlin Spence at Lake & Company Real Estate': 'https://caitlin.lakere.com/',
+                'Ballard Acupuncture Center': 'https://ballardacucenter.com',
+                'Firefly Tutoring Center': 'https://www.fireflytutoring.com/',
+                'Wool Friends': 'https://www.wool-friends.com',
+                'Wildwood Spirit Co': 'https://wildwoodspiritsco.com/',
+                'John Howie Restaurants': 'https://johnhowierestaurants.com/'
+            };
+
+            // Set URLs on sponsor cards
+            function setUrls() {
+                const cards = document.querySelectorAll('.sponsor-card');
+                cards.forEach(card => {
+                    const name = card.querySelector('.sponsor-name').textContent;
+                    const url = sponsorUrls[name];
+                    if (url) {
+                        card.href = url;
+                        card.target = '_blank';
+                        card.rel = 'noopener noreferrer';
+                    }
+                });
+            }
+
+            // Shuffle sponsor cards
+            function shuffleCards() {
+                const grid = document.querySelector('.sponsors-grid');
+                const cards = Array.from(grid.querySelectorAll('.sponsor-card'));
+
+                // Fisher-Yates shuffle
+                for (let i = cards.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [cards[i], cards[j]] = [cards[j], cards[i]];
+                }
+
+                // Re-append shuffled cards
+                cards.forEach(card => grid.appendChild(card));
+            }
+
+            // Create shooting stars
+            function createShootingStar() {
+                const star = document.createElement('div');
+                star.className = 'shooting-star';
+                const startX = Math.random() * window.innerWidth;
+                const startY = Math.random() * window.innerHeight;
+                star.style.left = startX + 'px';
+                star.style.top = startY + 'px';
+                star.style.animationDuration = (2 + Math.random() * 2) + 's';
+                document.body.appendChild(star);
+
+                // Remove star after animation
+                setTimeout(() => star.remove(), 4000);
+            }
+
+            // Initialize on page load
+            document.addEventListener('DOMContentLoaded', () => {
+                setUrls();
+                shuffleCards();
+
+                // Create shooting stars every 2 seconds
+                setInterval(createShootingStar, 2000);
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-4J2NBF3TX0"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-4J2NBF3TX0");
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Buy-In Parties — SBK Spring Fundraiser</title>
+        <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+        <link rel="stylesheet" href="https://use.typekit.net/zpl5vsa.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="styles.css" />
+        <style>
+            .parties-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+                margin-top: 2rem;
+            }
+
+            .party-card {
+                background: rgba(255, 255, 255, 0.04);
+                border: 1px solid rgba(232, 200, 122, 0.15);
+                border-top: 3px solid var(--gold);
+                border-radius: 10px;
+                padding: 2rem;
+                display: flex;
+                flex-direction: column;
+                transition: all 0.3s ease;
+                animation: fadeInSlide 0.6s ease-out forwards;
+            }
+
+            .party-card:hover {
+                border-color: var(--gold);
+                box-shadow: 0 0 20px rgba(232, 200, 122, 0.3);
+                transform: translateY(-3px);
+            }
+
+            .party-header {
+                margin-bottom: 1.5rem;
+                border-bottom: 1px solid rgba(232, 200, 122, 0.2);
+                padding-bottom: 1rem;
+            }
+
+            .party-name {
+                font-family: "Cormorant Garamond", serif;
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: var(--gold);
+                margin: 0 0 0.5rem 0;
+            }
+
+            .party-price {
+                font-family: "Outfit", sans-serif;
+                font-size: 1.3rem;
+                font-weight: 500;
+                color: var(--silver);
+                margin: 0;
+            }
+
+            .party-details {
+                display: grid;
+                gap: 0.75rem;
+                margin-bottom: 1.5rem;
+                font-size: 0.95rem;
+            }
+
+            .detail-row {
+                display: flex;
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .detail-label {
+                color: var(--mid);
+                font-size: 0.85rem;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                font-weight: 500;
+            }
+
+            .detail-value {
+                color: var(--silver);
+                font-family: "Outfit", sans-serif;
+            }
+
+            .party-description {
+                color: var(--silver);
+                font-size: 0.95rem;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+                flex-grow: 1;
+            }
+
+            .party-link {
+                display: inline-block;
+                padding: 0.75rem 1.5rem;
+                background: rgba(232, 200, 122, 0.1);
+                border: 1px solid var(--gold);
+                border-radius: 4px;
+                color: var(--gold);
+                text-decoration: none;
+                text-align: center;
+                transition: all 0.3s ease;
+                font-weight: 500;
+            }
+
+            .party-link:hover {
+                background: var(--gold);
+                color: var(--navy);
+            }
+
+            @keyframes fadeInSlide {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @media (max-width: 1024px) {
+                .parties-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Animated starfield background -->
+        <canvas id="starfield"></canvas>
+
+        <!-- HEADER NAVIGATION -->
+        <header class="site-header">
+            <nav class="nav container">
+                <a href="index.html" class="nav-logo">
+                    <span class="nav-logo-text">Salmon Bay K–8 ✦</span>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html#event">Event</a></li>
+                    <li><a href="index.html#ways-to-help">Ways to Help</a></li>
+                    <li><a href="index.html#mission">Donate</a></li>
+                    <li><a href="index.html#volunteer">Volunteer</a></li>
+                </ul>
+
+                <a
+                    href="https://givebutter.com/SBk8-spring2026"
+                    class="btn btn-primary nav-cta"
+                    target="_blank"
+                    rel="noopener"
+                    >Donate &amp; Tickets</a
+                >
+
+                <button class="hamburger" id="hamburger" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
+
+            <div class="mobile-menu" id="mobile-menu">
+                <ul>
+                    <li><a href="index.html#event">Event</a></li>
+                    <li><a href="index.html#ways-to-help">Ways to Help</a></li>
+                    <li><a href="index.html#mission">Donate</a></li>
+                    <li><a href="index.html#volunteer">Volunteer</a></li>
+                </ul>
+                <a
+                    href="https://givebutter.com/SBk8-spring2026"
+                    class="btn btn-primary"
+                    target="_blank"
+                    rel="noopener"
+                    >Donate &amp; Tickets</a
+                >
+            </div>
+        </header>
+
+        <main>
+            <!-- Buy-In Parties Section -->
+            <section class="section">
+                <div class="container">
+                    <p class="section-label">✦ Exclusive Experiences</p>
+                    <h1 class="section-title">Buy-In Parties</h1>
+                    <div class="divider" style="margin: 0 auto 2rem"></div>
+
+                    <div class="parties-grid">
+                        <!-- Party 1 -->
+                        <div class="party-card">
+                            <div class="party-header">
+                                <h2 class="party-name">Sew &amp; Snack Workshop</h2>
+                                <p class="party-price">$50</p>
+                            </div>
+                            <div class="party-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Hosted By</span>
+                                    <span class="detail-value">Brooke Amos &amp; Anna Daeuble</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Date &amp; Time</span>
+                                    <span class="detail-value">Sunday, May 31 • 3–6pm</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Location</span>
+                                    <span class="detail-value">Anna's home in Phinney Ridge</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Capacity</span>
+                                    <span class="detail-value">6 seats available, ages 21+</span>
+                                </div>
+                            </div>
+                            <p class="party-description">Learn the secret of the mitered corner and sew a gorgeous set of cloth napkins using boutique fabrics from Moona Fabrics. All materials provided. No experience necessary—projects designed for all skill levels. BYO machine or use one of the shared machines available.</p>
+                            <a href="https://givebutter.com/c/SBk8-spring2026/auction/categories/77944/buy-in-parties" target="_blank" rel="noopener noreferrer" class="party-link">Get Tickets</a>
+                        </div>
+
+                        <!-- Party 2 -->
+                        <div class="party-card">
+                            <div class="party-header">
+                                <h2 class="party-name">Botanical Papercraft Workshop</h2>
+                                <p class="party-price">$50</p>
+                            </div>
+                            <div class="party-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Hosted By</span>
+                                    <span class="detail-value">Carmen Clement &amp; Julie Schneider</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Date &amp; Time</span>
+                                    <span class="detail-value">Saturday, May 16 • 10am–12pm</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Location</span>
+                                    <span class="detail-value">The Making creative studio in Ballard</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Capacity</span>
+                                    <span class="detail-value">Up to 10 adults</span>
+                                </div>
+                            </div>
+                            <p class="party-description">Create elegant, realistic paper flowers using fine Italian crepe and cardstock. Choose your masterpiece: a custom bouquet, seasonal wreath, or graduation lei. All materials provided, including some pre-made flowers. Light hors d'oeuvres and botanical refreshments included. No experience necessary!</p>
+                            <a href="https://givebutter.com/c/SBk8-spring2026/auction/categories/77944/buy-in-parties" target="_blank" rel="noopener noreferrer" class="party-link">Get Tickets</a>
+                        </div>
+
+                        <!-- Party 3 -->
+                        <div class="party-card">
+                            <div class="party-header">
+                                <h2 class="party-name">Fine Art &amp; Happy Hour Cruise</h2>
+                                <p class="party-price">$75</p>
+                            </div>
+                            <div class="party-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Hosted By</span>
+                                    <span class="detail-value">Ned Carner &amp; Emily Talbot</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Date &amp; Time</span>
+                                    <span class="detail-value">Thursday, May 21 • 5–8pm</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Location</span>
+                                    <span class="detail-value">Traver Gallery in West Canal Yards</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Capacity</span>
+                                    <span class="detail-value">Up to 8 adults, age 21+</span>
+                                </div>
+                            </div>
+                            <p class="party-description">Explore contemporary art at Traver Gallery, then board a private electric boat for a scenic cruise through the Fremont Canal and out to Lake Union. Enjoy sips and snacks while taking in panoramic views of the city and waterfront architecture. Open air or enclosed seating available.</p>
+                            <a href="https://givebutter.com/c/SBk8-spring2026/auction/categories/77944/buy-in-parties" target="_blank" rel="noopener noreferrer" class="party-link">Get Tickets</a>
+                        </div>
+
+                        <!-- Party 4 -->
+                        <div class="party-card">
+                            <div class="party-header">
+                                <h2 class="party-name">Middle School Family Pop Up Pickleball</h2>
+                                <p class="party-price">$20 per player</p>
+                            </div>
+                            <div class="party-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Hosted By</span>
+                                    <span class="detail-value">Julie &amp; Nat Schneider, Katie &amp; Benjamin Roberts</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Date &amp; Time</span>
+                                    <span class="detail-value">Sunday, May 17 • 10am–12noon</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Location</span>
+                                    <span class="detail-value">Bitter Lake Outdoor Courts</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Capacity</span>
+                                    <span class="detail-value">Max 30 players including hosts</span>
+                                </div>
+                            </div>
+                            <p class="party-description">An open play morning for middle school students and adults. All skill levels welcome—beginners highly encouraged! Equipment provided if needed. Rotation system ensures everyone gets plenty of playtime and meets new people. Register each adult and student separately.</p>
+                            <a href="https://givebutter.com/c/SBk8-spring2026/auction/categories/77944/buy-in-parties" target="_blank" rel="noopener noreferrer" class="party-link">Get Tickets</a>
+                        </div>
+
+                        <!-- Party 5 -->
+                        <div class="party-card">
+                            <div class="party-header">
+                                <h2 class="party-name">Pop Up Pickleball</h2>
+                                <p class="party-price">$20 per player</p>
+                            </div>
+                            <div class="party-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Hosted By</span>
+                                    <span class="detail-value">Katie Roberts &amp; Julie Schneider</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Date &amp; Time</span>
+                                    <span class="detail-value">Sunday, June 7 • 10am–12noon</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Location</span>
+                                    <span class="detail-value">Bitter Lake Outdoor Courts</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Capacity</span>
+                                    <span class="detail-value">Max 30 adults including hosts</span>
+                                </div>
+                            </div>
+                            <p class="party-description">Join fellow Salmon Bay parents and alumni for a morning of pickleball. Court time and playing partners all arranged for you! All skill levels welcome. Equipment provided if needed. Rotation system for varied play and new connections. Adults only.</p>
+                            <a href="https://givebutter.com/c/SBk8-spring2026/auction/categories/77944/buy-in-parties" target="_blank" rel="noopener noreferrer" class="party-link">Get Tickets</a>
+                        </div>
+
+                        <!-- Party 6 -->
+                        <div class="party-card">
+                            <div class="party-header">
+                                <h2 class="party-name">Backyard Pizza Party with 6th Grade Team</h2>
+                                <p class="party-price">$35</p>
+                            </div>
+                            <div class="party-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Hosted By</span>
+                                    <span class="detail-value">6th Grade Staff</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Date &amp; Time</span>
+                                    <span class="detail-value">Friday, May 29 • 6:00–7:30pm</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Location</span>
+                                    <span class="detail-value">Teacher Joel's Ballard backyard</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Capacity</span>
+                                    <span class="detail-value">Max 15 participants</span>
+                                </div>
+                            </div>
+                            <p class="party-description">An evening of pizza-making and community in Teacher Joel's backyard. Any student of any grade welcome, with or without a parent. Start with warm pita bread, craft personal pizzas in a wood-fired clay oven, and finish with a sweet dessert pizza. Drinks included. Please share dietary restrictions ahead of time.</p>
+                            <a href="https://givebutter.com/c/SBk8-spring2026/auction/categories/77944/buy-in-parties" target="_blank" rel="noopener noreferrer" class="party-link">Get Tickets</a>
+                        </div>
+
+                        <!-- Party 7 -->
+                        <div class="party-card">
+                            <div class="party-header">
+                                <h2 class="party-name">Womxn on the Water</h2>
+                                <p class="party-price">$40</p>
+                            </div>
+                            <div class="party-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Hosted By</span>
+                                    <span class="detail-value">Erin Ferguson, Sylvia Loh, Mackenzie Melton, Rachel Nagorsky, &amp; Lilla Woods</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Date &amp; Time</span>
+                                    <span class="detail-value">Sunday, June 14 • 2–6pm</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Location</span>
+                                    <span class="detail-value">Green Lake (Duck Island side)</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Capacity</span>
+                                    <span class="detail-value">12 tickets for adult womxn</span>
+                                </div>
+                            </div>
+                            <p class="party-description">An afternoon on the water for Salmon Bay women! Meet at 2pm for introductions and equipment orientation, then paddle together. Post-paddling sips and snacks on the shore. No experience or board ownership necessary—equipment provided and borrowed from the community. Poor weather will reschedule the event.</p>
+                            <a href="https://givebutter.com/c/SBk8-spring2026/auction/categories/77944/buy-in-parties" target="_blank" rel="noopener noreferrer" class="party-link">Get Tickets</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <div class="container footer-inner">
+                <p class="footer-star">✦ ✦ ✦</p>
+                <p
+                    style="
+                        font-family: &quot;Cormorant Garamond&quot;, serif;
+                        font-size: 1.15rem;
+                        color: var(--silver);
+                        font-style: italic;
+                        opacity: 0.8;
+                    "
+                >
+                    The Galactic Gala — Salmon Bay K–8 Spring Fundraiser
+                </p>
+
+                <div class="footer-social">
+                    <a
+                        href="https://www.instagram.com/sbk8auction/"
+                        class="footer-social-link"
+                        aria-label="Instagram"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <rect
+                                x="2"
+                                y="2"
+                                width="20"
+                                height="20"
+                                rx="5"
+                                ry="5"
+                            />
+                            <path
+                                d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                            />
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                        </svg>
+                        <span>Instagram</span>
+                    </a>
+                    <a
+                        href="https://www.facebook.com/FriendsofSalmonBay/"
+                        class="footer-social-link"
+                        aria-label="Facebook"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path
+                                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                            />
+                        </svg>
+                        <span>Facebook</span>
+                    </a>
+                    <a
+                        href="https://www.friendsofsalmonbay.org/"
+                        class="footer-social-link"
+                        aria-label="Website"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="2" y1="12" x2="22" y2="12" />
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                            />
+                        </svg>
+                        <span>FOSB</span>
+                    </a>
+                </div>
+
+                <p>© 2025 Friends of Salmon Bay. All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="share.html">Share &amp; Donate</a></li>
+                    <li><a href="privacy.html">Privacy Statement</a></li>
+                    <li>
+                        <a
+                            href="/cdn-cgi/l/email-protection#d7b6a2b4a3beb8b997a4b6bbbab8b9b5b6aef9b8a5b0"
+                            >Contact Us</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </footer>
+
+        <script
+            data-cfasync="false"
+            src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+        ></script>
+        <script src="main.js"></script>
+    </body>
+</html>
