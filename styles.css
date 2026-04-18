@@ -602,7 +602,7 @@ givebutter-widget {
 .ticker-track {
     display: flex;
     gap: 0;
-    animation: ticker 35s linear infinite;
+    animation: ticker 50s linear infinite;
     width: max-content;
 }
 .ticker-track:hover {
