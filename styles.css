@@ -874,8 +874,4 @@ givebutter-widget {
     .hero-actions {
         gap: 0.75rem;
     }
-
-    .mobile-menu > div {
-        display: none;
-    }
 }
