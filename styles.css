@@ -784,7 +784,8 @@ givebutter-widget {
 ============================================= */
 @media (max-width: 768px) {
     .nav-links,
-    .nav-cta {
+    .nav-cta,
+    .nav-cta-buttons {
         display: none;
     }
     .hamburger {
