@@ -220,6 +220,11 @@ h2.section-title {
     margin-left: 1rem;
 }
 
+.nav-cta-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
