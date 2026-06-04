@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-4J2NBF3TX0"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-4J2NBF3TX0");
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Donors & Supporters — SBK Fall Fundraiser</title>
+        <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+        <link rel="stylesheet" href="https://use.typekit.net/zpl5vsa.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="styles.css" />
+        <style>
+            .donors-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 2rem;
+                margin-top: 2rem;
+            }
+
+            .donor-card {
+                background: rgba(255, 255, 255, 0.95);
+                border: 1px solid rgba(232, 200, 122, 0.15);
+                border-left: 4px solid var(--gold);
+                border-radius: 10px;
+                padding: 1.5rem;
+                text-align: center;
+                color: var(--navy);
+                transition: all 0.3s ease;
+            }
+
+            .donor-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+                border-left-color: #ff6b35;
+            }
+
+            .donor-card h3 {
+                color: var(--navy);
+                margin-bottom: 0.5rem;
+            }
+
+            .donor-card p {
+                font-size: 0.9rem;
+                color: #666;
+            }
+
+            @media (max-width: 768px) {
+                .donors-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header Navigation -->
+        <header class="site-header">
+            <nav class="nav container">
+                <a href="index.html" class="nav-logo">
+                    <span class="nav-logo-text">Salmon Bay K–8 ✦</span>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#event-details">Event Details</a></li>
+                    <li><a href="index.html#thermometer">Support Us</a></li>
+                </ul>
+
+                <div class="seasonal-switcher">
+                    <a href="../spring/">View Spring Fundraiser</a>
+                </div>
+
+                <button class="hamburger" id="hamburger" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
+
+            <div class="mobile-menu" id="mobile-menu">
+                <a href="index.html#about">About</a>
+                <a href="index.html#event-details">Event Details</a>
+                <a href="index.html#thermometer">Support Us</a>
+                <a href="../spring/">View Spring Fundraiser</a>
+            </div>
+        </header>
+
+        <main>
+            <!-- Page Title -->
+            <section class="hero container">
+                <h1>Our Donors & Supporters</h1>
+                <p class="hero-subtitle">Thank you to the community members and businesses supporting SBK</p>
+            </section>
+
+            <!-- Donors Grid -->
+            <section class="container">
+                <div id="donors-container" class="donors-grid"></div>
+            </section>
+
+            <!-- Thank You Message -->
+            <section class="container" style="margin-top: 4rem; text-align: center; padding: 2rem; background: rgba(255, 255, 255, 0.1); border-radius: 10px; color: white;">
+                <h2 style="color: var(--silver);">Thank You!</h2>
+                <p style="margin-bottom: 1.5rem;">
+                    We're grateful to every donor and supporter who makes our fall fundraiser successful.
+                    Their generosity directly impacts the lives of our students.
+                </p>
+                <p style="color: var(--silver);">Interested in supporting? <a href="index.html#thermometer" style="color: var(--gold); text-decoration: none; font-weight: 600;">Learn how to help</a></p>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer style="background: rgba(0, 0, 0, 0.3); color: rgba(255, 255, 255, 0.8); text-align: center; padding: 2rem; margin-top: 3rem;">
+            <p>© 2026 Salmon Bay K-8 | Supporting Student Success</p>
+        </footer>
+
+        <script>
+// Load donors from data/donors.txt
+async function loadDonors() {
+  const container = document.getElementById('donors-container');
+
+  try {
+    const res = await fetch('data/donors.txt');
+    if (res.ok) {
+      const text = await res.text();
+      const donors = text.split('\n')
+        .map(n => n.trim())
+        .filter(Boolean);
+
+      donors.forEach(donor => {
+        const card = document.createElement('a');
+        card.href = '#';
+        card.className = 'donor-card';
+        card.innerHTML = `<h3>${donor}</h3><p>Supporter of SBK</p>`;
+        container.appendChild(card);
+      });
+
+      if (donors.length === 0) {
+        container.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">Loading donor information...</p>';
+      }
+    }
+  } catch(e) {
+    console.log('Donors file not yet available');
+  }
+}
+
+loadDonors();
+
+// Mobile menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+if (hamburger && mobileMenu) {
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => mobileMenu.classList.remove('open'))
+  );
+}
+        </script>
+    </body>
+</html>

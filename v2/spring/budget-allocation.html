@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-4J2NBF3TX0"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-4J2NBF3TX0");
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FOSB Budget Allocation 2025-2026</title>
+        <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+        <link rel="stylesheet" href="https://use.typekit.net/zpl5vsa.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="styles.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+        <style>
+            .content-wrapper {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+                margin-top: 3rem;
+                margin-bottom: 3rem;
+            }
+
+            .chart-wrapper {
+                background: var(--navy-light);
+                border: 1px solid rgba(232, 200, 122, 0.12);
+                border-radius: 10px;
+                padding: 2rem;
+                transition:
+                    border-color 0.2s,
+                    box-shadow 0.2s,
+                    transform 0.2s;
+            }
+
+            .chart-wrapper:hover {
+                border-color: rgba(232, 200, 122, 0.45);
+                box-shadow: 0 0 24px rgba(232, 200, 122, 0.12);
+                transform: translateY(-3px);
+            }
+
+            .chart-container {
+                position: relative;
+                height: 350px;
+                width: 100%;
+                margin-bottom: 1.5rem;
+            }
+
+            .chart-legend {
+                padding: 1rem;
+                background: rgba(232, 200, 122, 0.05);
+                border-radius: 8px;
+                border: 1px solid rgba(232, 200, 122, 0.1);
+            }
+
+            .legend-item {
+                display: flex;
+                align-items: center;
+                margin: 0.5rem 0;
+                font-size: 0.9rem;
+            }
+
+            .legend-color {
+                width: 14px;
+                height: 14px;
+                border-radius: 3px;
+                margin-right: 0.75rem;
+                flex-shrink: 0;
+            }
+
+            .legend-text {
+                flex: 1;
+                color: var(--silver);
+            }
+
+            .legend-value {
+                font-weight: 500;
+                color: var(--gold);
+                margin-left: auto;
+                text-align: right;
+            }
+
+            .summary {
+                background: rgba(232, 200, 122, 0.1);
+                padding: 1rem;
+                border-radius: 8px;
+                margin-top: 1rem;
+                text-align: center;
+                font-weight: 600;
+                color: var(--gold);
+                border: 1px solid rgba(232, 200, 122, 0.2);
+            }
+
+            .key-wrapper {
+                background: var(--navy-light);
+                border: 1px solid rgba(232, 200, 122, 0.12);
+                border-radius: 10px;
+                padding: 2rem;
+            }
+
+            .key-title {
+                font-family: var(--font-display);
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: var(--white);
+                margin-bottom: 1.5rem;
+                padding-bottom: 1rem;
+                border-bottom: 1px solid rgba(232, 200, 122, 0.2);
+            }
+
+            .category-item {
+                margin-bottom: 1.5rem;
+                padding-bottom: 1.25rem;
+                border-bottom: 1px solid rgba(232, 200, 122, 0.1);
+            }
+
+            .category-item:last-child {
+                border-bottom: none;
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+
+            .category-header {
+                display: flex;
+                align-items: center;
+                margin-bottom: 0.5rem;
+                gap: 0.75rem;
+            }
+
+            .category-color {
+                width: 14px;
+                height: 14px;
+                border-radius: 3px;
+                flex-shrink: 0;
+            }
+
+            .category-name {
+                font-weight: 600;
+                color: var(--white);
+                font-size: 1rem;
+                flex: 1;
+            }
+
+            .category-amount {
+                font-size: 0.9rem;
+                color: var(--gold);
+                font-weight: bold;
+            }
+
+            .category-description {
+                color: var(--mid);
+                font-size: 0.85rem;
+                line-height: 1.5;
+                margin-left: 1.5rem;
+            }
+
+            @media (max-width: 768px) {
+                .content-wrapper {
+                    grid-template-columns: 1fr;
+                }
+
+                .chart-container {
+                    height: 300px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Animated starfield background -->
+        <canvas id="starfield"></canvas>
+        <!-- =============================================
+     HEADER NAVIGATION
+     ============================================= -->
+        <header class="site-header">
+            <nav class="nav container">
+                <a href="index.html" class="nav-logo">
+                    <span class="nav-logo-text">Salmon Bay K–8 ✦</span>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html#event">Event</a></li>
+                    <li><a href="index.html#ways-to-help">Ways to Help</a></li>
+                    <li><a href="index.html#donate">Donate</a></li>
+                </ul>
+
+                <div style="display: flex; gap: 0.5rem;">
+                    <a
+                        href="https://givebutter.com/c/SBk8-spring2026/auction"
+                        class="btn btn-primary"
+                        style="background: var(--silver); color: var(--navy); min-width: 120px; text-align: center;"
+                        target="_blank"
+                        rel="noopener"
+                        >Online Auction</a
+                    >
+
+                    <a
+                        href="https://givebutter.com/SBk8-spring2026"
+                        class="btn btn-primary nav-cta"
+                        target="_blank"
+                        rel="noopener"
+                        >Donate &amp; Tickets</a
+                    >
+                </div>
+
+                <button class="hamburger" id="hamburger" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
+
+            <div class="mobile-menu" id="mobile-menu">
+                <ul>
+                    <li><a href="index.html#event">Event</a></li>
+                    <li><a href="index.html#ways-to-help">Ways to Help</a></li>
+                    <li><a href="index.html#donate">Donate</a></li>
+                </ul>
+                <div style="display: flex; gap: 0.5rem;">
+                    <a
+                        href="https://givebutter.com/c/SBk8-spring2026/auction"
+                        class="btn btn-primary"
+                        style="background: var(--silver); color: var(--navy); flex: 1; text-align: center;"
+                        target="_blank"
+                        rel="noopener"
+                        >Online Auction</a
+                    >
+                    <a
+                        href="https://givebutter.com/SBk8-spring2026"
+                        class="btn btn-primary"
+                        style="flex: 1; text-align: center;"
+                        target="_blank"
+                        rel="noopener"
+                        >Donate &amp; Tickets</a
+                    >
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="section section--mid">
+                <div class="container">
+                    <div
+                        style="
+                            margin-bottom: 2rem;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                        "
+                    >
+                        <a
+                            href="index.html#mission"
+                            class="btn btn-outline"
+                            style="font-size: 0.85rem"
+                            >← Back to Main</a
+                        >
+                        <a
+                            href="fundraiser-breakdown.html"
+                            class="btn btn-outline"
+                            style="font-size: 0.85rem"
+                            >View Fundraiser Results →</a
+                        >
+                    </div>
+                    <p class="section-label">✦ Budget Information</p>
+                    <h2 class="section-title">FOSB Budget Allocation</h2>
+                    <div class="divider"></div>
+
+                    <!-- 2025-2026 Working Budget -->
+                    <h3
+                        style="
+                            color: var(--gold);
+                            font-family: var(--font-display);
+                            font-size: 1.5rem;
+                            margin-top: 2.5rem;
+                            margin-bottom: 1.5rem;
+                            text-align: center;
+                        "
+                    >
+                        Working Budget 2025-2026
+                    </h3>
+
+                    <div class="content-wrapper">
+                        <!-- Chart Section -->
+                        <div class="chart-wrapper">
+                            <div class="chart-container">
+                                <canvas id="budgetChart2026"></canvas>
+                            </div>
+
+                            <div
+                                class="chart-legend"
+                                id="budgetLegend2026"
+                            ></div>
+
+                            <div class="summary">Total Budget: $294,945</div>
+                        </div>
+
+                        <!-- Key/Explanation Section -->
+                        <div class="key-wrapper">
+                            <div class="key-title">Budget Categories</div>
+                            <div id="categoryKey2026"></div>
+                        </div>
+                    </div>
+
+                    <!-- 2024-2025 Final Spending -->
+                    <h3
+                        style="
+                            color: var(--gold);
+                            font-family: var(--font-display);
+                            font-size: 1.5rem;
+                            margin-top: 3rem;
+                            margin-bottom: 1.5rem;
+                            text-align: center;
+                        "
+                    >
+                        Final Spending 2024-2025
+                    </h3>
+
+                    <div class="content-wrapper">
+                        <!-- Chart Section -->
+                        <div class="chart-wrapper">
+                            <div class="chart-container">
+                                <canvas id="budgetChart2025"></canvas>
+                            </div>
+
+                            <div
+                                class="chart-legend"
+                                id="budgetLegend2025"
+                            ></div>
+
+                            <div class="summary">Total Spending: $235,729</div>
+                        </div>
+
+                        <!-- Key/Explanation Section -->
+                        <div class="key-wrapper">
+                            <div class="key-title">Budget Categories</div>
+                            <div id="categoryKey2025"></div>
+                            <p
+                                style="
+                                    margin-top: 1.5rem;
+                                    font-size: 0.85rem;
+                                    color: var(--mid);
+                                    font-style: italic;
+                                    line-height: 1.5;
+                                "
+                            >
+                                *Our 2024-2025 budget was influenced by external
+                                factors, including changes in district funding,
+                                concerns over school closures, and enrollment
+                                trends.
+                            </p>
+                            <p
+                                style="
+                                    margin-top: 0.75rem;
+                                    font-size: 0.85rem;
+                                    color: var(--mid);
+                                    line-height: 1.5;
+                                "
+                            >
+                                More detailed budget information is available at
+                                <a
+                                    href="https://friendsofsalmonbay.org"
+                                    target="_blank"
+                                    rel="noopener"
+                                    style="color: var(--gold); text-decoration: none;"
+                                    >friendsofsalmonbay.org</a
+                                >.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- =============================================
+     FOOTER
+     ============================================= -->
+        <footer class="site-footer">
+            <div class="container footer-inner">
+                <p class="footer-star">✦ ✦ ✦</p>
+                <p
+                    style="
+                        font-family: &quot;Cormorant Garamond&quot;, serif;
+                        font-size: 1.15rem;
+                        color: var(--silver);
+                        font-style: italic;
+                        opacity: 0.8;
+                    "
+                >
+                    The Galactic Gala — Salmon Bay K–8 Spring Fundraiser
+                </p>
+                <p style="margin-top: 1rem">
+                    © 2026 Friends of Salmon Bay. All rights reserved.
+                </p>
+            </div>
+        </footer>
+
+        <script>
+            // Color palette
+            const colors2026 = [
+                "#e8c87a", // Gold - School Grant
+                "#78a8e8", // Blue - Student Scholarships
+                "#e89878", // Orange - School Classrooms and Programs
+                "#e87898", // Rose - Emerging Needs
+                "#78e8c8", // Teal - FOSB Committees
+                "#b878e8", // Purple - FOSB Operations
+            ];
+
+            // 2025-2026 Working budget data
+            const budgetData2026 = {
+                labels: [
+                    "School Grant",
+                    "Student Scholarships",
+                    "School Classrooms and Programs",
+                    "Emerging Needs",
+                    "FOSB Committees",
+                    "FOSB Operations",
+                ],
+                values: [147000, 56000, 31450, 33075, 19150, 8270],
+                descriptions: [
+                    "Retain staff for essential school classes, programs, and services, such as the School Nurse, Kindergarten Readiness Team, Elementary Reading Specialist, Middle School Drama, English Language Arts and Elective Teachers, Middle School Counselor, and Extracurricular Staff.",
+                    "Provide scholarships so students can participate in all aspects of school, regardless of cost, such as Overnight Camps, Spring Enrichment Program (SEP), Field Trips, After-School Programs, and Back-to-School Supplies.",
+                    "Fund supplemental supplies for school classrooms and programs, such as Physical Education (PE) & Athletics, Middle School Exploratory Studies and Theater, Spring Enrichment Program (SEP), Where Everybody Belongs (WEB), Field Day, Graduations, and Yearbooks.",
+                    "Supports staff and school community needs as they arise throughout the year. Past expenses have included classroom emergency preparedness kits, stage sound system upgrades, piano tuning, kiln repair, refrigerator replacement, staff professional development, and new program initiatives.",
+                    "Fund volunteer-led initiatives that connect our school and greater community together, such as All-School Events (Pizza on the Playground, Evening Lantern Festival, Pi(e) Night, Multicultural Night), Building Community Initiative (BCI) Grade-Level Events, Parent Information Exchange (PIE), Staff Appreciation, Sustainability, Traffic Safety.",
+                    "Pay for expenses associated with operating a nonprofit, such as liability insurance, bookkeeper fees, QuickBooks license, state/city filings, communications, and supplies.",
+                ],
+            };
+
+            // Create 2025-2026 chart
+            const ctx2026 = document
+                .getElementById("budgetChart2026")
+                .getContext("2d");
+            const budgetChart2026 = new Chart(ctx2026, {
+                type: "doughnut",
+                data: {
+                    labels: budgetData2026.labels,
+                    datasets: [
+                        {
+                            data: budgetData2026.values,
+                            backgroundColor: colors2026,
+                            borderColor: "#fff",
+                            borderWidth: 2,
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    const label = context.label || "";
+                                    const value =
+                                        "$" +
+                                        context.parsed.toLocaleString("en-US");
+                                    const total = context.dataset.data.reduce(
+                                        (a, b) => a + b,
+                                        0,
+                                    );
+                                    const percentage = (
+                                        (context.parsed / total) *
+                                        100
+                                    ).toFixed(1);
+                                    return (
+                                        label +
+                                        ": " +
+                                        value +
+                                        " (" +
+                                        percentage +
+                                        "%)"
+                                    );
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+
+            // Create 2025-2026 legend
+            const total2026 = budgetData2026.values.reduce((a, b) => a + b, 0);
+            const legendHTML2026 = budgetData2026.labels
+                .map((label, index) => {
+                    const value = budgetData2026.values[index];
+                    const percentage = ((value / total2026) * 100).toFixed(1);
+                    return `
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: ${colors2026[index]}"></div>
+                        <span class="legend-text">${label}</span>
+                        <span class="legend-value">$${value.toLocaleString("en-US")}</span>
+                    </div>
+                `;
+                })
+                .join("");
+
+            document.getElementById("budgetLegend2026").innerHTML =
+                legendHTML2026;
+
+            // Create 2025-2026 category key
+            const keyHTML2026 = budgetData2026.labels
+                .map((label, index) => {
+                    const value = budgetData2026.values[index];
+                    return `
+                    <div class="category-item">
+                        <div class="category-header">
+                            <div class="category-color" style="background-color: ${colors2026[index]}"></div>
+                            <span class="category-name">${label}</span>
+                            <span class="category-amount">$${value.toLocaleString("en-US")}</span>
+                        </div>
+                        <div class="category-description">${budgetData2026.descriptions[index]}</div>
+                    </div>
+                `;
+                })
+                .join("");
+
+            document.getElementById("categoryKey2026").innerHTML = keyHTML2026;
+
+            // Color palette (same mapping as 2025-2026)
+            const colors2025 = [
+                "#e8c87a", // Gold - School Grant
+                "#78a8e8", // Blue - Student Scholarships
+                "#e89878", // Orange - School Classrooms and Programs
+                "#e87898", // Rose - Emerging Needs
+                "#78e8c8", // Teal - FOSB Committees
+                "#b878e8", // Purple - FOSB Operations
+            ];
+
+            // 2024-2025 Final spending data (as of 6/30/25)
+            const budgetData2025 = {
+                labels: [
+                    "School Grant",
+                    "Student Scholarships",
+                    "School Classrooms and Programs",
+                    "Emerging Needs",
+                    "FOSB Committees",
+                    "FOSB Operations",
+                ],
+                values: [92167, 36622, 40121, 42256, 13946, 10617],
+            };
+
+            // Create 2024-2025 chart
+            const ctx2025 = document
+                .getElementById("budgetChart2025")
+                .getContext("2d");
+            const budgetChart2025 = new Chart(ctx2025, {
+                type: "doughnut",
+                data: {
+                    labels: budgetData2025.labels,
+                    datasets: [
+                        {
+                            data: budgetData2025.values,
+                            backgroundColor: colors2025,
+                            borderColor: "#fff",
+                            borderWidth: 2,
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    const label = context.label || "";
+                                    const value =
+                                        "$" +
+                                        context.parsed.toLocaleString("en-US");
+                                    const total = context.dataset.data.reduce(
+                                        (a, b) => a + b,
+                                        0,
+                                    );
+                                    const percentage = (
+                                        (context.parsed / total) *
+                                        100
+                                    ).toFixed(1);
+                                    return (
+                                        label +
+                                        ": " +
+                                        value +
+                                        " (" +
+                                        percentage +
+                                        "%)"
+                                    );
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+
+            // Create 2024-2025 legend
+            const total2025 = budgetData2025.values.reduce((a, b) => a + b, 0);
+            const legendHTML2025 = budgetData2025.labels
+                .map((label, index) => {
+                    const value = budgetData2025.values[index];
+                    const percentage = ((value / total2025) * 100).toFixed(1);
+                    return `
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: ${colors2025[index]}"></div>
+                        <span class="legend-text">${label}</span>
+                        <span class="legend-value">$${value.toLocaleString("en-US")}</span>
+                    </div>
+                `;
+                })
+                .join("");
+
+            document.getElementById("budgetLegend2025").innerHTML =
+                legendHTML2025;
+
+            // Create 2024-2025 category key (no descriptions)
+            const keyHTML2025 = budgetData2025.labels
+                .map((label, index) => {
+                    const value = budgetData2025.values[index];
+                    return `
+                    <div class="category-item">
+                        <div class="category-header">
+                            <div class="category-color" style="background-color: ${colors2025[index]}"></div>
+                            <span class="category-name">${label}</span>
+                            <span class="category-amount">$${value.toLocaleString("en-US")}</span>
+                        </div>
+                    </div>
+                `;
+                })
+                .join("");
+
+            document.getElementById("categoryKey2025").innerHTML = keyHTML2025;
+
+        </script>
+
+        <script src="main.js"></script>
+    </body>
+</html>

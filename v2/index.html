@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SBK8 Fundraiser</title>
+        <link rel="icon" href="spring/images/favicon.svg" type="image/svg+xml" />
+    </head>
+    <body style="margin: 0; padding: 0;">
+        <script>
+            // Auto-redirect based on current season
+            // Fall: August 1 - December 31
+            // Spring: January 1 - July 31
+            const month = new Date().getMonth(); // 0-11 (Jan=0, Dec=11)
+
+            // August (7) through December (11) is Fall
+            if (month >= 7) {
+                window.location.href = '/v2/fall/';
+            } else {
+                // January (0) through July (6) is Spring
+                window.location.href = '/v2/spring/';
+            }
+        </script>
+        <p style="font-family: Arial, sans-serif; padding: 2rem; color: #666;">Redirecting...</p>
+    </body>
+</html>

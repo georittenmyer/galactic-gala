@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-4J2NBF3TX0"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-4J2NBF3TX0");
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SBK Fall Fundraiser 2026</title>
+        <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+        <link rel="stylesheet" href="https://use.typekit.net/zpl5vsa.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <!-- Header Navigation -->
+        <header class="site-header">
+            <nav class="nav container">
+                <a href="#" class="nav-logo">
+                    <span class="nav-logo-text">Salmon Bay K–8</span>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#thermometer">Donate</a></li>
+                    <li><a href="../spring/" class="nav-other-season">Spring →</a></li>
+                </ul>
+
+                <button class="hamburger" id="hamburger" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
+
+            <div class="mobile-menu" id="mobile-menu">
+                <a href="#about">About</a>
+                <a href="#thermometer">Donate</a>
+                <a href="../spring/">Spring Fundraiser</a>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="hero container">
+                <h1>SBK Fall Fundraiser</h1>
+                <p class="hero-subtitle">Supporting Salmon Bay K-8 students through community giving</p>
+            </section>
+
+            <!-- Fundraiser Thermometer -->
+            <section id="thermometer" class="container">
+                <div class="thermometer">
+                    <h2>Our Fundraising Goal</h2>
+                    <div class="thermo-container">
+                        <div class="thermo-bar">
+                            <div class="thermo-fill" id="thermo-fill"></div>
+                        </div>
+                        <p id="thermo-amount" class="thermo-goal"></p>
+                        <p style="color: #666; margin-top: 1rem;">
+                            Help us reach our goal to support student programs and enrichment activities.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="container">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>About Our Fundraiser</h3>
+                        <p>
+                            This fall fundraiser directly supports student programs, field trips, and enrichment activities
+                            at Salmon Bay K-8. Every contribution makes a meaningful difference in our students' educational experience.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>How to Help</h3>
+                        <p>
+                            You can support our fundraiser by making a donation, participating in our events,
+                            or spreading the word to your community. All funds go directly to student programs.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Questions?</h3>
+                        <p>
+                            Contact the SBK8 PTA for more information about how your support helps our students.
+                            We're grateful for your partnership in education.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Event Details Section -->
+            <section id="event-details" class="container">
+                <div class="info-grid" style="grid-template-columns: 1fr;">
+                    <div class="info-card" style="background: linear-gradient(135deg, rgba(232, 200, 122, 0.1), rgba(200, 212, 232, 0.1)); border-top-color: var(--silver);">
+                        <h3>Getting Involved</h3>
+                        <p>
+                            We're creating multiple ways for community members to participate:
+                        </p>
+                        <ul style="margin-left: 1.5rem; margin-top: 1rem; color: #666;">
+                            <li>Direct donations to support student programs</li>
+                            <li>Auction items and donor opportunities</li>
+                            <li>Community events throughout the fall season</li>
+                            <li>Volunteering opportunities</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Spring Fundraiser Link -->
+            <section class="container" style="text-align: center; margin: 4rem 0 2rem 0; padding: 2rem; background: rgba(255, 255, 255, 0.1); border-radius: 10px; color: white;">
+                <h2 style="color: var(--silver);">Also Explore</h2>
+                <p style="margin-bottom: 1.5rem;">Check out our Spring 2026 fundraiser, the Galactic Gala</p>
+                <a href="../spring/" style="display: inline-block; padding: 0.8rem 2rem; background: var(--gold); color: var(--navy); text-decoration: none; border-radius: 5px; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.background='#f0d890'" onmouseout="this.style.background='var(--gold)'">
+                    View Galactic Gala →
+                </a>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer style="background: rgba(0, 0, 0, 0.3); color: rgba(255, 255, 255, 0.8); text-align: center; padding: 2rem; margin-top: 3rem;">
+            <p>© 2026 Salmon Bay K-8 | Supporting Student Success</p>
+        </footer>
+
+        <script src="main.js"></script>
+    </body>
+</html>
