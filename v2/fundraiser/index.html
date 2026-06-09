@@ -15,10 +15,10 @@
     <header class="site-header">
         <nav class="nav container">
             <a href="#" class="nav-logo">
-                <span class="nav-logo-text">SBK8 Fundraising</span>
+                <img src="../images/sbk8Fundraiser_H_V1.svg" alt="SBK8 Fundraising" class="nav-logo-img">
             </a>
             <ul class="nav-links">
-                <li><a href="#mission">Our Mission</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#campaigns">Campaigns</a></li>
                 <li><a href="mailto:fundraising@sbk8.org">Contact</a></li>
             </ul>
@@ -27,164 +27,104 @@
             </button>
         </nav>
         <div class="mobile-menu" id="mobile-menu">
-            <a href="#mission">Our Mission</a>
+            <a href="#how-it-works">How It Works</a>
             <a href="#campaigns">Campaigns</a>
             <a href="mailto:fundraising@sbk8.org">Contact</a>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero container">
-            <h1>Supporting Salmon Bay K–8</h1>
-            <p class="hero-subtitle">Unified fundraising for our school community</p>
-        </section>
-
-        <!-- Logos Section -->
-        <section class="logos-section container">
-            <h2>Our Branding</h2>
-            <p class="section-intro">Two logos. One mission. Supporting our students year-round.</p>
-
-            <div class="logos-grid">
-                <!-- Logo 1: SBK8raised.org -->
-                <div class="logo-card">
-                    <div class="logo-display">
-                        <svg viewBox="0 0 500 100" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
-                            <!-- Coin design with segments -->
-                            <defs>
-                                <radialGradient id="coinGradient" cx="40%" cy="40%">
-                                    <stop offset="0%" style="stop-color:#FF4060;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#DC143C;stop-opacity:1" />
-                                </radialGradient>
-                                <filter id="coinShadow">
-                                    <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3"/>
-                                </filter>
-                            </defs>
-                            <!-- Main coin circle -->
-                            <circle cx="30" cy="50" r="25" fill="url(#coinGradient)" filter="url(#coinShadow)"/>
-                            <!-- Coin border/rim -->
-                            <circle cx="30" cy="50" r="25" fill="none" stroke="#8B0000" stroke-width="1.5"/>
-                            <!-- Decorative segments around coin -->
-                            <circle cx="30" cy="25" r="3" fill="#ffffff" opacity="0.6"/>
-                            <circle cx="55" cy="50" r="3" fill="#ffffff" opacity="0.6"/>
-                            <circle cx="30" cy="75" r="3" fill="#ffffff" opacity="0.6"/>
-                            <circle cx="5" cy="50" r="3" fill="#ffffff" opacity="0.6"/>
-                            <!-- Dollar sign in center -->
-                            <text x="30" y="58" text-anchor="middle" font-size="16" font-weight="bold" fill="white" font-family="Righteous">$</text>
-                            <!-- Text all on one line -->
-                            <text x="70" y="60" class="logo-text-primary">SBK8</text>
-                            <text x="220" y="60" class="logo-text-secondary-inline">raised.org</text>
-                        </svg>
-                    </div>
-                    <h3>SBK8raised.org</h3>
-                    <p>Central portal for all SBK8 fundraising. Primary fundraising hub for community giving.</p>
-                </div>
-
-                <!-- Logo 2: SBK8 Fundraising -->
-                <div class="logo-card">
-                    <div class="logo-display">
-                        <svg viewBox="0 0 500 100" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
-                            <defs>
-                                <radialGradient id="coinGradient2" cx="40%" cy="40%">
-                                    <stop offset="0%" style="stop-color:#FF4060;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#DC143C;stop-opacity:1" />
-                                </radialGradient>
-                                <filter id="coinShadow2">
-                                    <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3"/>
-                                </filter>
-                            </defs>
-                            <!-- Coin with tilt effect -->
-                            <circle cx="30" cy="50" r="25" fill="url(#coinGradient2)" filter="url(#coinShadow2)"/>
-                            <circle cx="30" cy="50" r="25" fill="none" stroke="#8B0000" stroke-width="1.5"/>
-                            <!-- Segments -->
-                            <circle cx="30" cy="25" r="3" fill="#ffffff" opacity="0.6"/>
-                            <circle cx="55" cy="50" r="3" fill="#ffffff" opacity="0.6"/>
-                            <circle cx="30" cy="75" r="3" fill="#ffffff" opacity="0.6"/>
-                            <circle cx="5" cy="50" r="3" fill="#ffffff" opacity="0.6"/>
-                            <!-- Star in center for "giving" -->
-                            <text x="30" y="58" text-anchor="middle" font-size="20" fill="white">★</text>
-                            <!-- Text all on one line -->
-                            <text x="70" y="60" class="logo-text-primary">SBK8</text>
-                            <text x="240" y="60" class="logo-text-secondary-inline">Fundraising</text>
-                        </svg>
-                    </div>
-                    <h3>SBK8 Fundraising</h3>
-                    <p>Core mission and brand. Used for all fundraising campaigns and community communications.</p>
-                </div>
+        <!-- Welcome Section -->
+        <section class="hero">
+            <div class="hero-content container">
+                <h1>Together we are Salmon Bay</h1>
+                <p class="hero-subtitle">Supporting our school and our students</p>
+                <p class="hero-description">Every contribution funds essential resources—our teachers, school programs, field trips, enrichment activities, and the experiences that make Salmon Bay special.</p>
             </div>
         </section>
 
-        <!-- Mission Section -->
-        <section id="mission" class="mission-section container">
-            <h2>Our Mission</h2>
-            <div class="mission-content">
-                <p>
-                    SBK8 fundraising is dedicated to supporting the educational experience at Salmon Bay K–8.
-                    Through coordinated giving and community engagement, we bridge funding gaps and provide
-                    resources that enhance student learning and school community.
-                </p>
-                <p>
-                    Our year-round approach includes seasonal campaigns and ongoing direct giving opportunities,
-                    ensuring sustainable support for our school's priorities and student programs.
-                </p>
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="how-it-works container">
+            <h2>How Our Funding Works</h2>
+
+            <div class="funding-explanation">
+                <p class="funding-core"><strong>Families and community members give twice per year.</strong> These donations fund FOSB's annual budget, which directly pays for Salmon Bay K–8. Our fundraising dollars bridge critical gaps left by district funding shortfalls—particularly in staff salaries and essential school programs.</p>
+
+                <div class="funding-grid">
+                    <div class="funding-card">
+                        <h3>Fall & Spring Giving</h3>
+                        <p>Direct donations from families and community members support FOSB's operating budget. These contributions are essential—they literally fund the school.</p>
+                    </div>
+                    <div class="funding-card">
+                        <h3>What Gets Funded</h3>
+                        <p>Staff support, student programs, field trips, enrichment activities, and school operations. Without community giving, these vital resources wouldn't exist.</p>
+                    </div>
+                </div>
+
+                <div class="important-note">
+                    <h3>About Enrichment Fees</h3>
+                    <p><strong>Enrichment fees are separate from fundraising.</strong> These are required fees for specific programs (like electives or activities) and go directly to those accounts. Enrichment fees are <strong>mandatory</strong>, but scholarships are available for families that need support. Contact the school if cost is a barrier.</p>
+                </div>
             </div>
         </section>
 
         <!-- Campaigns Section -->
-        <section id="campaigns" class="campaigns-section container">
+        <section id="campaigns" class="campaigns container">
             <h2>Our Campaigns</h2>
             <div class="campaigns-grid">
-                <div class="campaign-card">
-                    <h3>Spring Fundraiser</h3>
-                    <p class="campaign-theme">Annual themed event & giving campaign</p>
-                    <p>Unique each year. Focused on community celebration and major fundraising goals.</p>
-                    <a href="../spring/" class="campaign-link">Explore Spring →</a>
-                </div>
-                <div class="campaign-card">
-                    <h3>Fall Direct Giving</h3>
-                    <p class="campaign-theme">Ongoing giving & fall initiatives</p>
-                    <p>Year-round giving opportunity. Consistent messaging and direct support for student programs.</p>
-                    <a href="../fall/" class="campaign-link">Explore Fall →</a>
-                </div>
+                <a href="../spring/" class="campaign-link">
+                    <div class="campaign-item">
+                        <h3>Spring Fundraiser</h3>
+                        <p class="campaign-subtitle">Annual themed event & giving</p>
+                        <p>Join us for the Galactic Gala, our signature spring celebration. A night of community, fun, and fundraising.</p>
+                        <div class="cta-text">Explore →</div>
+                    </div>
+                </a>
+                <a href="../fall/" class="campaign-link">
+                    <div class="campaign-item">
+                        <h3>Fall Direct Giving</h3>
+                        <p class="campaign-subtitle">Ongoing giving throughout fall</p>
+                        <p>Support our students directly with simple, straightforward giving. Multiple options to fit your family.</p>
+                        <div class="cta-text">Explore →</div>
+                    </div>
+                </a>
             </div>
         </section>
 
-        <!-- Guidelines Section -->
-        <section class="guidelines-section container">
-            <h2>Brand Guidelines</h2>
-            <div class="guidelines-content">
-                <h3>Color Palette</h3>
-                <div class="color-palette">
-                    <div class="color-box">
-                        <div class="color-swatch" style="background-color: #000000;"></div>
-                        <p>Black</p>
-                        <code>#000000</code>
-                    </div>
-                    <div class="color-box">
-                        <div class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #ddd;"></div>
-                        <p>White</p>
-                        <code>#FFFFFF</code>
-                    </div>
-                    <div class="color-box">
-                        <div class="color-swatch" style="background-color: #DC143C;"></div>
-                        <p>Red (Accent)</p>
-                        <code>#DC143C</code>
+        <!-- Calendar Section -->
+        <section class="calendar container">
+            <h2>Upcoming Events</h2>
+            <div class="calendar-placeholder">
+                <p>Check back for 2026 event dates and fundraising calendar</p>
+                <p class="contact-prompt">Subscribe or <a href="mailto:fundraising@sbk8.org">contact us</a> to stay updated on fundraising events</p>
+            </div>
+        </section>
+
+        <!-- Budget & Impact Section -->
+        <section class="budget container">
+            <h2>Your Impact: Where Funds Go</h2>
+            <div class="budget-grid">
+                <div class="budget-card">
+                    <h3>2025 Fundraising Results</h3>
+                    <div class="chart-placeholder">
+                        <p>Budget allocation chart coming soon</p>
                     </div>
                 </div>
-
-                <h3>Typography</h3>
-                <p>Body font: <strong>Fredoka</strong> (friendly, rounded, approachable)</p>
-                <p>Heading font: <strong>Righteous</strong> (bold, playful, energetic)</p>
-                <p>Creates a young, fun, school-appropriate feel while staying professional.</p>
-
-                <h3>Usage</h3>
-                <ul>
-                    <li>Both logos represent the same mission and can be used interchangeably</li>
-                    <li>Red accent can emphasize key messaging and calls-to-action</li>
-                    <li>Maintain clear spacing around logos</li>
-                    <li>Always pair with supporting text for context</li>
-                </ul>
+                <div class="budget-card">
+                    <h3>2026 Goals & Priorities</h3>
+                    <div class="chart-placeholder">
+                        <p>Annual funding priorities chart coming soon</p>
+                    </div>
+                </div>
             </div>
+            <p class="budget-note">Transparency matters. We're committed to showing you how your contribution supports student success.</p>
+        </section>
+
+        <!-- Volunteer CTA Section -->
+        <section class="volunteer-cta container">
+            <h2>We Need Your Help</h2>
+            <p>Beyond donations, we need volunteers to make our fundraising efforts successful. Whether it's event setup, coordination, or spreading the word—your time matters.</p>
+            <a href="mailto:fundraising@sbk8.org?subject=I%20want%20to%20volunteer" class="btn-volunteer">Get Involved</a>
         </section>
     </main>
 
