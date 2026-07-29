@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 400" width="1060" height="400">
+
+
+
+  <circle cx="200" cy="200" r="192" fill="#ED1C24"></circle>
+  <circle cx="200" cy="200" r="196" fill="none" stroke="#ED1C24" stroke-width="8" stroke-dasharray="10.26 3.42"></circle>
+  <circle cx="200" cy="200" r="168" fill="none" stroke="#ffffff" stroke-width="4"></circle>
+  <text x="130" y="167.8" font-family="Poppins, Arial, sans-serif" font-weight="900" font-size="108" fill="#ffffff" text-anchor="middle">S</text>
+  <text x="270" y="167.8" font-family="Poppins, Arial, sans-serif" font-weight="900" font-size="108" fill="#ffffff" text-anchor="middle">B</text>
+  <text x="130" y="307.8" font-family="Poppins, Arial, sans-serif" font-weight="900" font-size="108" fill="#ffffff" text-anchor="middle">K</text>
+  <text x="270" y="307.8" font-family="Poppins, Arial, sans-serif" font-weight="900" font-size="108" fill="#ffffff" text-anchor="middle">8</text>
+<text x="443.72" y="171.68" font-family="Poppins, Arial, sans-serif" font-weight="700" font-style="italic" font-size="24.8" fill="#ED1C24" letter-spacing="1">friends of salmon bay</text>
+<text x="440" y="241.98000000000002" font-family="Poppins, Arial, sans-serif" font-weight="800" font-size="74" fill="#111111" letter-spacing="-2" textLength="414.4" lengthAdjust="spacingAndGlyphs">FUNDRAISING</text>
+
+</svg>
