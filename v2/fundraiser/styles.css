@@ -1,7 +1,14 @@
 :root {
   --black: #000000;
   --white: #ffffff;
-  --red: #DC143C;
+  --red: #FF3B30;
+  --orange: #FF9500;
+  --yellow: #FFD60A;
+  --green: #00C853;
+  --cyan: #00D9FF;
+  --blue: #0071FF;
+  --purple: #9D4EDD;
+  --pink: #FF006E;
   --gray-light: #f5f5f5;
   --gray-dark: #333333;
   --border: #e0e0e0;
@@ -74,8 +81,8 @@ body {
 }
 
 .nav-links a:hover {
-  color: var(--red);
-  border-bottom-color: var(--red);
+  color: var(--blue);
+  border-bottom-color: var(--blue);
 }
 
 .hamburger {
@@ -146,7 +153,8 @@ h2 {
   font-weight: 800;
   color: var(--black);
   margin-bottom: 1.5rem;
-  border-bottom: 4px solid var(--red);
+  border-bottom: 4px solid;
+  border-image: linear-gradient(90deg, var(--red), var(--orange), var(--yellow), var(--green), var(--cyan), var(--blue), var(--purple)) 1;
   padding-bottom: 0.75rem;
   display: inline-block;
   font-family: 'Poppins', sans-serif;
@@ -170,10 +178,11 @@ p {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, rgba(220, 20, 60, 0.08) 0%, rgba(0, 0, 0, 0.03) 100%);
+  background: linear-gradient(135deg, rgba(255, 59, 48, 0.1) 0%, rgba(255, 149, 0, 0.08) 25%, rgba(255, 214, 10, 0.08) 50%, rgba(0, 200, 83, 0.08) 75%, rgba(0, 217, 255, 0.1) 100%);
   padding: 4rem 0;
   margin-bottom: 3rem;
-  border-bottom: 3px solid var(--red);
+  border-bottom: 4px solid;
+  border-image: linear-gradient(90deg, var(--red), var(--orange), var(--yellow), var(--green), var(--cyan), var(--blue), var(--purple)) 1;
   position: relative;
   overflow: hidden;
 }
@@ -216,7 +225,10 @@ p {
 
 .hero-subtitle {
   font-size: 1.4rem;
-  color: var(--red);
+  background: linear-gradient(90deg, var(--red), var(--orange), var(--green), var(--blue), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-weight: 600;
   margin-bottom: 1.5rem;
   letter-spacing: -0.3px;
@@ -267,13 +279,16 @@ p {
   background-color: var(--white);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   position: relative;
-  border-left: 6px solid var(--red);
+  border-left: 6px solid var(--orange);
+}
+
+.funding-card:nth-child(2) {
+  border-left-color: var(--blue);
 }
 
 .funding-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(220, 20, 60, 0.15);
-  border-color: var(--red);
+  box-shadow: 0 8px 20px rgba(0, 200, 83, 0.25);
 }
 
 .funding-card h3 {
@@ -331,6 +346,11 @@ p {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  border-top: 6px solid var(--red);
+}
+
+.campaign-link:nth-child(2) .campaign-item {
+  border-top-color: var(--cyan);
 }
 
 .campaign-coin {
@@ -343,18 +363,18 @@ p {
 .campaign-item::before {
   content: '';
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: -100%;
   width: 100%;
   height: 4px;
-  background: var(--red);
-  transition: left 0.3s ease;
+  background: linear-gradient(90deg, var(--red), var(--orange), var(--yellow), var(--green), var(--cyan), var(--blue), var(--purple));
+  transition: left 0.4s ease;
 }
 
 .campaign-link:hover .campaign-item {
   transform: translateY(-8px);
-  box-shadow: 0 8px 24px rgba(220, 20, 60, 0.2);
-  border-color: var(--red);
+  box-shadow: 0 12px 30px rgba(0, 200, 83, 0.25);
+  border-top-width: 8px;
 }
 
 .campaign-link:hover .campaign-item::before {
@@ -367,12 +387,16 @@ p {
 
 .campaign-subtitle {
   font-size: 0.85rem;
-  color: var(--red);
+  color: var(--blue);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 1rem;
   display: block;
+}
+
+.campaign-link:nth-child(2) .campaign-subtitle {
+  color: var(--purple);
 }
 
 .campaign-item > p {
@@ -381,9 +405,13 @@ p {
 }
 
 .cta-text {
-  color: var(--red);
+  color: var(--orange);
   font-weight: 600;
   font-size: 0.95rem;
+}
+
+.campaign-link:nth-child(2) .cta-text {
+  color: var(--green);
 }
 
 /* Calendar Section */
@@ -405,11 +433,11 @@ p {
 
 .contact-prompt {
   font-size: 0.9rem;
-  color: var(--red);
+  color: var(--green);
 }
 
 .contact-prompt a {
-  color: var(--red);
+  color: var(--green);
   text-decoration: underline;
 }
 
@@ -426,9 +454,14 @@ p {
 }
 
 .budget-card {
-  border: 2px solid var(--black);
+  border: 3px solid var(--black);
   padding: 2rem;
-  background-color: var(--gray-light);
+  background-color: var(--white);
+  border-top: 6px solid var(--yellow);
+}
+
+.budget-card:nth-child(2) {
+  border-top-color: var(--purple);
 }
 
 .budget-card h3 {
@@ -457,12 +490,12 @@ p {
 
 /* Volunteer CTA Section */
 .volunteer-cta {
-  background-color: var(--white);
+  background: linear-gradient(135deg, rgba(255, 59, 48, 0.05), rgba(255, 149, 0, 0.05), rgba(0, 200, 83, 0.05), rgba(0, 217, 255, 0.05), rgba(0, 113, 255, 0.05), rgba(157, 78, 221, 0.05));
   padding: 4rem 2rem;
   border: 4px solid var(--black);
   text-align: center;
   margin-bottom: 4rem;
-  box-shadow: 8px 8px 0 var(--red);
+  box-shadow: 8px 8px 0 rgba(0, 113, 255, 0.4);
 }
 
 .volunteer-cta h2 {
@@ -481,7 +514,7 @@ p {
 .btn-volunteer {
   display: inline-block;
   padding: 1.2rem 3rem;
-  background-color: var(--red);
+  background: linear-gradient(135deg, var(--red), var(--orange), var(--yellow), var(--green), var(--cyan), var(--blue), var(--purple));
   color: var(--white);
   text-decoration: none;
   font-weight: 700;
@@ -491,13 +524,13 @@ p {
   border: 3px solid var(--black);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
 }
 
 .btn-volunteer:hover {
-  background-color: var(--black);
+  background: linear-gradient(135deg, var(--purple), var(--blue), var(--cyan), var(--green), var(--yellow), var(--orange), var(--red));
   color: var(--white);
-  box-shadow: 6px 6px 0 rgba(220, 20, 60, 0.3);
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Footer */
@@ -531,7 +564,7 @@ p {
 }
 
 .footer-links a:hover {
-  border-bottom-color: var(--red);
+  border-bottom-color: var(--cyan);
 }
 
 /* Responsive */
